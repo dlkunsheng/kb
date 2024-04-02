@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Notebooks with MyST Markdown &#8212; 坤晟 Wiki</title>
+    <title>知识库创建 &#8212; 坤晟 Wiki</title>
   
   
   
@@ -57,9 +57,10 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'markdown-notebooks';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01-knowledge-base';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -121,8 +122,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -176,8 +175,8 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="01-knowledge-base.html">知识库创建</a></li>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">知识库创建</a></li>
 </ul>
 
     </div>
@@ -249,7 +248,7 @@
       
       
       
-      <li><a href="https://github.com/dlkunsheng/kb/kunsheng-wiki/issues/new?title=Issue%20on%20page%20%2Fmarkdown-notebooks.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/dlkunsheng/kb/kunsheng-wiki/issues/new?title=Issue%20on%20page%20%2F01-knowledge-base.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -279,7 +278,7 @@
       
       
       
-      <li><a href="_sources/markdown-notebooks.md" target="_blank"
+      <li><a href="_sources/01-knowledge-base.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -289,7 +288,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -363,7 +362,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Notebooks with MyST Markdown</h1>
+    <h1>知识库创建</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -373,9 +372,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">知识库</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">安装步骤</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">使用</a></li>
 </ul>
             </nav>
         </div>
@@ -387,43 +386,112 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="notebooks-with-myst-markdown">
-<h1>Notebooks with MyST Markdown<a class="headerlink" href="#notebooks-with-myst-markdown" title="Link to this heading">#</a></h1>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Link to this heading">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>知识库创建<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="id2">
+<h2>知识库<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>下面的库和文档演示了：</p>
+<ul class="simple">
+<li><p>通过Jupyter Book创建知识库</p></li>
+<li><p>通过Jupyter Notebook或Jupyter Lab创建和修改记事本</p></li>
+<li><p>让Jupyter记事本支持C#、Matlab、TypeScript、JavaScript等语言内核</p></li>
+</ul>
+<p>使用Jupyter记事本创建知识库的收益包括：</p>
+<ul class="simple">
+<li><p>通过记事本演示算法、模型</p></li>
+<li><p>通过数据列表和数据可视化的方式跟客户讨论及验证算法和模型</p></li>
+<li><p>沉淀、记录和升级知识储备</p></li>
+<li><p>帮助团队成员之间、成员和客户之间的沟通、学习和交流</p></li>
+</ul>
+<p>参考：</p>
+<ul class="simple">
+<li><p>Github Repo: <a class="github reference external" href="https://github.com/richardcuick/kb-demo">richardcuick/kb-demo</a></p></li>
+<li><p>安装文档：<a class="github reference external" href="https://github.com/richardcuick/kb-demo/blob/main/README.MD">richardcuick/kb-demo</a></p></li>
+<li><p>演示：<a class="reference external" href="https://richardcuick.github.io/kb-demo/book1/csharp-sample.html">https://richardcuick.github.io/kb-demo/book1/csharp-sample.html</a></p></li>
+</ul>
+<p>建议：</p>
+<ul class="simple">
+<li><p>大家为手中开发的程序和软件创建知识库</p></li>
+<li><p>积极使用，遇到问题及时沟通解决，帮助团队、实验室迅速建立知识库</p></li>
+<li><p>知识库是帮团队沉淀业务知识最好的手段，后期可以起到减少知识负载加速开发的目的。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>安装步骤<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<ul>
+<li><p>安装Anaconda: [<a class="reference external" href="https://www.anaconda.com/download">https://www.anaconda.com/download</a>](<a class="reference external" href="https://www.anaconda.com/">https://www.anaconda.com/</a>
+download)</p>
+<ul class="simple">
+<li><p>使用Anaconda Prompt(Anaconda提示行，已安装Python环境)</p></li>
+</ul>
+</li>
+<li><p>创建Jupter Book</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">create</span> <span class="pre">&lt;book</span> <span class="pre">name&gt;/</span></code></p></li>
+</ul>
+</li>
+<li><p>Jupyter内核</p>
+<ul class="simple">
+<li><p>参考</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.servicestack.net/">ServiceStack Documentation</a></p></li>
+<li><p><a class="reference external" href="https://docs.servicestack.net/jupyter-notebooks-csharp#generate-c-jupyter-notebooks">C# Jupyter Notebooks (servicestack.net)</a></p></li>
+</ul>
+</li>
+<li><p>查看内核列表： <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">kernelspec</span> <span class="pre">list</span></code></p></li>
+<li><p>安装C#内核：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">tool</span> <span class="pre">install</span> <span class="pre">-g</span> <span class="pre">Microsoft.dotnet-interactive</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">interactive</span> <span class="pre">jupyter</span> <span class="pre">install</span></code></p></li>
+</ul>
+</li>
+<li><p>Matlab
+账号：20229815878&#64;cqu.edu.cn 密码：RSgpeugXWGs8egX7eR
+<a class="reference external" href="https://docs.qq.com/doc/DWGJjSEdkY1lOdVJh%E3%80%8A%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BD%E6%95%99%E7%A8%8B%E3%80%8B">https://docs.qq.com/doc/DWGJjSEdkY1lOdVJh《官网下载教程》</a></p></li>
+<li><p>安装Matlab内核：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyter-matlab-proxy</span></code></p></li>
+</ul>
+</li>
+<li><p>安装TypeScript内核：</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span> <span class="pre">-g</span> <span class="pre">tslab</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tslab</span> <span class="pre">install</span> <span class="pre">--version</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tslab</span> <span class="pre">install</span> <span class="pre">[--python=python3]</span></code></p></li>
+</ul>
+</li>
+<li><p>安装C++内核</p>
+<ul>
+<li><p>参考：<a class="reference external" href="https://blog.jupyter.org/interactive-workflows-for-c-with-jupyter-fe9b54227d92">https://blog.jupyter.org/interactive-workflows-for-c-with-jupyter-fe9b54227d92</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">xeus-cling</span></code></p></li>
+</ul>
+</li>
+<li><p>安装Go内核</p></li>
+<li><p>安装Rust内核</p></li>
+<li><p>安装Julia内核</p></li>
+</ul>
+</li>
+<li><p>Jupyter创建知识库</p>
+<ul>
+<li><p>安装Jupyter Book：<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyter-book</span></code></p></li>
+<li><p>安装ghp-import： <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ghp-import</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">create</span> <span class="pre">mynewbook/</span></code></p></li>
+<li><p>关闭notebook执行选项，在_config.yml文件中，修改配置项：</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">execute</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">execute_notebooks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">off</span>
 </pre></div>
 </div>
-</div>
-</div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Jupyter Book uses <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to convert text-based files to notebooks, and can support <a class="reference external" href="https://jupyterbook.org/file-types/jupytext.html">many other text-based notebook files</a>.</p>
-</div>
+</li>
+</ul>
+</li>
+</ul>
 </section>
-<section id="create-a-notebook-with-myst-markdown">
-<h2>Create a notebook with MyST Markdown<a class="headerlink" href="#create-a-notebook-with-myst-markdown" title="Link to this heading">#</a></h2>
-<p>MyST Markdown notebooks are defined by two things:</p>
-<ol class="arabic simple">
-<li><p>YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-See the YAML at the top of this page for example.</p></li>
-<li><p>The presence of <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> directives, which will be executed with your book.</p></li>
-</ol>
-<p>That’s all that is needed to get started!</p>
-</section>
-<section id="quickly-add-yaml-metadata-for-myst-notebooks">
-<h2>Quickly add YAML metadata for MyST Notebooks<a class="headerlink" href="#quickly-add-yaml-metadata-for-myst-notebooks" title="Link to this heading">#</a></h2>
-<p>If you have a markdown file and you’d like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">myst</span> <span class="n">init</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">markdownfile</span><span class="o">.</span><span class="n">md</span>
+<section id="id4">
+<h2>使用<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- `open-note`： 打开jupyter notebook
+- `open-lab`： 打开jupyter lab
+- `build &lt;directory name&gt;`: 构建book,生成文档复制到dist目录
+- `publish`: 发布到Github仓库的gh-pages分支，可以通过&lt;user name&gt;.github.io/&lt;repo name&gt;/&lt;book name&gt;访问
 </pre></div>
 </div>
 </section>
@@ -438,16 +506,16 @@ See the YAML at the top of this page for example.</p></li>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: ""
         },
         kernelOptions: {
-            name: "python3",
+            name: "",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = ''</script>
 
                 </article>
               
@@ -459,6 +527,15 @@ See the YAML at the top of this page for example.</p></li>
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -475,9 +552,9 @@ See the YAML at the top of this page for example.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">知识库</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">安装步骤</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">使用</a></li>
 </ul>
   </nav></div>
 
