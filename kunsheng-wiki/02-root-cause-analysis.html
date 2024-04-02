@@ -387,6 +387,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">让他人审查</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">缺陷的RCA分析和记录示例</a></li>
 </ul>
             </nav>
         </div>
@@ -442,6 +443,37 @@ document.write(`
 <h3>让他人审查<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>例如代码审查，可以让另一位不带偏见的人员检查您的代码。随着时间的推移，期待审查会帮助您优化这一流程。或者更好的办法是：结对解决问题。</p>
 </section>
+</section>
+<section id="id8">
+<h2>缺陷的RCA分析和记录示例<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<p>RCA表单填写内容如下：</p>
+<ul class="simple">
+<li><p>缺陷编号：如，D20240402-001</p></li>
+<li><p>缺陷名称：LaTex公式错误纠正</p></li>
+<li><p>缺陷分类：需求理解错误/计算错误/逻辑错误等等</p></li>
+<li><p>提出者：xxx工程师</p></li>
+<li><p>解决者：崔驰坤</p></li>
+<li><p>解决开始时间：2024年4月1日 15:00</p></li>
+<li><p>解决结束时间：2024年4月2日 17:00</p></li>
+<li><p>缺陷原因：因理解不足导致公式错误，正确的公式应该是….</p></li>
+<li><p>缺陷分析：需求理解不足，下次应该在开发前与xxx工程师讨论到计算级别，通过Jupyter进行交互式讨论建立知识库将知识落地，方便后续开发、交流、分享和校验。</p></li>
+<li><p>缺陷修改方法：创建Latex公式对应Jupyter知识库</p></li>
+</ul>
+<p>缺陷代码的修改示例：</p>
+<div class="highlight-C# notranslate"><div class="highlight"><pre><span></span><span class="c1">// Add_Start D20240402-001</span>
+<span class="o">&lt;</span><span class="err">要添加的内容</span><span class="o">&gt;</span>
+<span class="c1">// Add_End D20240402-001</span>
+
+<span class="c1">// Remove_Start D20240402-001</span>
+<span class="c1">// &lt;要删除的内容&gt;</span>
+<span class="c1">// Remvoe_End D20240402-001</span>
+
+<span class="c1">// Update_Start D20240402-001</span>
+<span class="c1">// &lt;要删除的内容/更新之前的内容&gt;</span>
+<span class="o">&lt;</span><span class="err">要添加的内容</span><span class="o">/</span><span class="err">更新之后的内容</span><span class="o">&gt;</span>
+<span class="c1">// Update_End D20240402-001</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -518,6 +550,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">让他人审查</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">缺陷的RCA分析和记录示例</a></li>
 </ul>
   </nav></div>
 
