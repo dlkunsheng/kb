@@ -1,0 +1,768 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '井筒压力Bingham-HTHPVariantGeometry';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-%E9%AB%98%E6%B8%A9%E9%AB%98%E5%8E%8B%E9%92%BB%E4%BA%95%E6%B6%B2%E6%80%A7%E8%B4%A8%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B.html">01-高温高压钻井液性质预测模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-%E4%BA%95%E7%AD%92%E6%B8%A9%E5%BA%A6.html">02-井筒温度</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F井筒压力Bingham-HTHPVariantGeometry.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/井筒压力Bingham-HTHPVariantGeometry.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">clear</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clc</span><span class="p">;</span><span class="nb">close</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="w"> </span><span class="c">% 清除数据</span>
+<span class="nb">cd</span><span class="p">(</span><span class="s">&quot;D:\桌面\毕设\材料\20221127-结题材料\03-源代码\02 - 井筒压力\02-Bingham\Bingham-HTHP\VariantGeometry&quot;</span><span class="p">)</span>
+<span class="c">%% 数据输入及预处理（国际单位制）</span>
+<span class="n">T_0</span><span class="p">=</span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="c">% T_0为测试温度（℃）</span>
+<span class="n">P_0</span><span class="p">=</span><span class="mi">101325</span><span class="p">;</span><span class="w"> </span><span class="c">% P_0为测试压力（Pa）</span>
+<span class="n">data_rheology</span><span class="p">=</span><span class="n">csvread</span><span class="p">(</span><span class="s">&#39;RheologyData.csv&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c">% data_rheology存储测试温度和压力条件下的宾汉流体六速粘度计数据，第一列为转速，第二列为读数；因存在表头且csv只能读取纯数据，1代表从第2行开始读取，0代表从第1列开始读取</span>
+<span class="p">[</span><span class="n">tau_y</span><span class="p">,</span><span class="n">mu_p_0</span><span class="p">]=</span><span class="n">Rheology_Bingham</span><span class="p">(</span><span class="n">data_rheology</span><span class="p">);</span><span class="w"> </span><span class="c">% 根据测试温度、压力条件下的宾汉流体六速粘度计数据，采用回归法计算得到剪切应力tau_y（Pa）和塑性黏度mu_p_0（Pa·s）</span>
+<span class="n">mu_0</span><span class="p">=</span><span class="n">Rheology_Newtonian</span><span class="p">(</span><span class="n">data_rheology</span><span class="p">);</span><span class="w"> </span><span class="c">% 根据测试温度、压力条件下的牛顿流体六速粘度计数据，采用回归法计算得到黏度mu_0（Pa·s）</span>
+
+<span class="n">welldepth</span><span class="p">=</span><span class="mi">4000</span><span class="p">;</span><span class="w"> </span><span class="c">% 井深，m</span>
+<span class="n">nx</span><span class="p">=</span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="c">% 空间网格数</span>
+<span class="n">Nx</span><span class="p">=</span><span class="n">nx</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c">% 空间节点数</span>
+<span class="n">Depth</span><span class="p">(</span><span class="mi">1</span><span class="p">)=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c">% 空间节点，m</span>
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">Nx</span><span class="o">-</span><span class="mi">1</span>
+<span class="w">    </span><span class="n">dz</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="n">welldepth</span><span class="o">/</span><span class="p">(</span><span class="n">Nx</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 空间步长，m</span>
+<span class="w">    </span><span class="n">Depth</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)=</span><span class="n">Depth</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">+</span><span class="n">dz</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span><span class="w"> </span><span class="c">% 空间节点，m</span>
+<span class="k">end</span>
+
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">Nx</span>
+<span class="w">    </span><span class="n">theta</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c">% theta为井斜角（°），以铅垂线为起始线</span>
+<span class="w">    </span><span class="n">theta</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="n">theta</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">/</span><span class="mi">180</span><span class="o">*</span><span class="nb">pi</span><span class="p">;</span><span class="w"> </span><span class="c">% 将井斜角单位转换为弧度</span>
+<span class="w">    </span><span class="n">D_w</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="mf">0.14</span><span class="p">;</span><span class="w"> </span><span class="c">% D_w为井筒内径（m）</span>
+<span class="w">    </span><span class="n">D_d_o</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="mf">0.1143</span><span class="p">;</span><span class="w"> </span><span class="c">% D_d_o为钻杆外径（m）</span>
+<span class="w">    </span><span class="n">D_d_i</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="mf">0.10053</span><span class="p">;</span><span class="w"> </span><span class="c">% D_d_i为钻杆内径（m）</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">i</span><span class="o">&gt;</span><span class="mi">46</span>
+<span class="w">        </span><span class="n">D_d_o</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="mf">0.0889</span><span class="p">;</span><span class="w"> </span><span class="c">% D_do为钻杆外径（m）</span>
+<span class="w">        </span><span class="n">D_d_i</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="mf">0.076</span><span class="p">;</span><span class="w"> </span><span class="c">% D_di为钻杆内径（m）</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="n">A_d</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="n">D_d_i</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span>^<span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c">% A_d为钻杆截面积（m^2）</span>
+<span class="w">    </span><span class="n">A_a</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="nb">pi</span><span class="o">*</span><span class="p">(</span><span class="n">D_w</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span>^<span class="mi">2</span><span class="o">-</span><span class="n">D_d_o</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span>^<span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% A_a为环空截面积（m^2）</span>
+<span class="k">end</span>
+
+<span class="n">rho_0</span><span class="p">=</span><span class="mi">1500</span><span class="p">;</span><span class="w"> </span><span class="c">% rho_0为测试温度、压力下的钻井液密度（kg/m^3）</span>
+<span class="n">Qv_0</span><span class="p">=</span><span class="mf">0.1</span><span class="o">/</span><span class="mi">60</span><span class="p">;</span><span class="w"> </span><span class="c">% 钻井液体积流量（m^3/s）</span>
+<span class="n">Qm_0</span><span class="p">=</span><span class="n">Qv_0</span><span class="o">*</span><span class="n">rho_0</span><span class="p">;</span><span class="w"> </span><span class="c">% ML_0为测试温度、压力下的钻井液质量排量（kg/s）</span>
+<span class="n">g</span><span class="p">=</span><span class="mf">9.81</span><span class="p">;</span><span class="w"> </span><span class="c">% g为重力加速度（m/s^2）</span>
+
+<span class="c">%% 温度计算</span>
+<span class="p">[</span><span class="n">T_a_T</span><span class="p">,</span><span class="n">T_d_T</span><span class="p">,</span><span class="n">Depth_T</span><span class="p">,</span><span class="n">Time_T</span><span class="p">]=</span><span class="n">Temperature</span><span class="p">(</span><span class="n">welldepth</span><span class="p">,</span><span class="n">rho_0</span><span class="p">,</span><span class="n">mu_0</span><span class="p">,</span><span class="n">Qv_0</span><span class="p">);</span><span class="w"> </span><span class="c">% 计算温度场参数（环空温度（℃），管内温度（℃），空间节点（m），时间节点（s））</span>
+
+<span class="c">%% 插值计算空间节点Depth对应的环空温度T_A和管内温度T_D</span>
+<span class="p">[</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">]=</span><span class="nb">size</span><span class="p">(</span><span class="n">T_a_T</span><span class="p">);</span>
+<span class="k">for</span><span class="w"> </span><span class="n">t</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">c</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">x</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">Nx</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">Depth</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;=</span><span class="n">Depth_T</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Depth</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&lt;</span><span class="n">Depth_T</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">                </span><span class="n">T_A</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">)=</span><span class="n">T_a_T</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">T_a_T</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="n">T_a_T</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span><span class="n">t</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">Depth</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">Depth_T</span><span class="p">(</span><span class="nb">i</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">Depth_T</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">Depth_T</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span><span class="w"> </span><span class="c">% 环空钻井液温度，℃</span>
+<span class="w">                </span><span class="n">T_D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">)=</span><span class="n">T_d_T</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">T_d_T</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="n">T_d_T</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span><span class="n">t</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">Depth</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">Depth_T</span><span class="p">(</span><span class="nb">i</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">Depth_T</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">Depth_T</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span><span class="w"> </span><span class="c">% 管内钻井液温度，℃</span>
+<span class="w">            </span><span class="k">elseif</span><span class="w"> </span><span class="n">Depth</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">==</span><span class="n">Depth_T</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">                </span><span class="n">T_A</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">)=</span><span class="n">T_a_T</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">t</span><span class="p">);</span><span class="w"> </span><span class="c">% 环空钻井液温度，℃</span>
+<span class="w">                </span><span class="n">T_D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">)=</span><span class="n">T_d_T</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">t</span><span class="p">);</span><span class="w"> </span><span class="c">% 管内钻井液温度，℃</span>
+<span class="w">            </span><span class="k">end</span>
+<span class="w">        </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">T_a</span><span class="p">=</span><span class="n">T_A</span><span class="p">(:,</span><span class="n">c</span><span class="p">);</span><span class="w"> </span><span class="c">% 末态环空钻井液温度，℃</span>
+<span class="n">T_d</span><span class="p">=</span><span class="n">T_D</span><span class="p">(:,</span><span class="n">c</span><span class="p">);</span><span class="w"> </span><span class="c">% 末态管内钻井液温度，℃</span>
+
+<span class="c">%% 环空压力计算</span>
+<span class="c">% 1代表井口，Nx代表井底</span>
+<span class="c">% P_a为环空压力（Pa）,V_a为环空内钻井液速度（m/s），A_a为环空内截面积（m^2），mu_p_a为环空内钻井液的塑性黏度（Pa·s）,Ff_a为环空内单位长度上的压降（Pa/m）</span>
+<span class="n">P_a</span><span class="p">(</span><span class="mi">1</span><span class="p">)=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c">% 环空出口压力为0，这里面的0代表的是表压，实际压力为一个大气压</span>
+<span class="n">rho_a</span><span class="p">(</span><span class="mi">1</span><span class="p">)=</span><span class="n">Density_TP</span><span class="p">(</span><span class="n">rho_0</span><span class="p">,</span><span class="n">T_0</span><span class="p">,</span><span class="n">P_0</span><span class="p">,</span><span class="n">T_a</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">P_a</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span><span class="w"> </span><span class="c">% 计算环空中当前网格的密度</span>
+<span class="n">V_a</span><span class="p">(</span><span class="mi">1</span><span class="p">)=</span><span class="n">Qm_0</span><span class="o">/</span><span class="n">rho_a</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">A_a</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 环空内钻井液速度=钻井液质量排量/钻井液密度/环空内截面积</span>
+<span class="n">mu_p_a</span><span class="p">(</span><span class="mi">1</span><span class="p">)=</span><span class="n">Rheology_TP</span><span class="p">(</span><span class="n">mu_p_0</span><span class="p">,</span><span class="n">T_0</span><span class="p">,</span><span class="n">P_0</span><span class="p">,</span><span class="n">T_a</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">P_a</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span><span class="w"> </span><span class="c">% 计算环空中当前网格的塑性黏度</span>
+<span class="p">[</span><span class="n">Ff_a</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">flow_pattern_a</span><span class="p">(</span><span class="mi">1</span><span class="p">)]=</span><span class="n">Friction_annulus</span><span class="p">(</span><span class="n">rho_a</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">V_a</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">mu_p_a</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">tau_y</span><span class="p">,</span><span class="n">D_w</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">D_d_o</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">Qm_0</span><span class="p">);</span><span class="w"> </span><span class="c">% 计算环空中当前网格的单位长度压降和流型（层流、湍流）</span>
+
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">2</span><span class="p">:</span><span class="n">Nx</span>
+<span class="w">    </span><span class="n">P_a</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="n">P_a</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">rho_a</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">dz</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 根据前一网格压力及前一个网格中钻井液重力压降，假设当前网格的压力</span>
+<span class="w">    </span><span class="n">err_P</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c">% 给定压力的初始误差，使其进入迭代循环</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">err_P</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">1e-4</span><span class="w"> </span><span class="c">% 压力收敛的判断标准</span>
+<span class="w">        </span><span class="n">rho_a</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="n">Density_TP</span><span class="p">(</span><span class="n">rho_0</span><span class="p">,</span><span class="n">T_0</span><span class="p">,</span><span class="n">P_0</span><span class="p">,</span><span class="n">T_a</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">P_a</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span><span class="w"> </span><span class="c">% 计算当前温度、压力下的环空钻井液密度</span>
+<span class="w">        </span><span class="n">V_a</span><span class="p">(</span><span class="nb">i</span><span class="p">)=(</span><span class="n">rho_a</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">V_a</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">A_a</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">rho_a</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">*</span><span class="n">A_a</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span><span class="w"> </span><span class="c">% 根据环空内质量守恒方程，计算环空内钻井液流速</span>
+<span class="w">        </span><span class="n">mu_p_a</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="n">Rheology_TP</span><span class="p">(</span><span class="n">mu_p_0</span><span class="p">,</span><span class="n">T_0</span><span class="p">,</span><span class="n">P_0</span><span class="p">,</span><span class="n">T_a</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">P_a</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span><span class="w"> </span><span class="c">% 计算当前温度、压力下的环空钻井液塑性黏度</span>
+<span class="w">        </span><span class="p">[</span><span class="n">Ff_a</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">flow_pattern_a</span><span class="p">(</span><span class="nb">i</span><span class="p">)]=</span><span class="n">Friction_annulus</span><span class="p">(</span><span class="n">rho_a</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">V_a</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">mu_p_a</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">tau_y</span><span class="p">,</span><span class="n">D_w</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">D_d_o</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">Qm_0</span><span class="p">);</span><span class="w"> </span><span class="c">% 计算环空中当前网格的单位长度压降和流型（层流、湍流）</span>
+<span class="w">        </span><span class="n">P_a_new</span><span class="p">=</span><span class="n">P_a</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">rho_a</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">*</span><span class="n">V_a</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span>^<span class="mi">2</span><span class="o">-</span><span class="n">rho_a</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">V_a</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>^<span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">dz</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">rho_a</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">+</span><span class="n">rho_a</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">(</span><span class="nb">i</span><span class="p">)))</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">dz</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Ff_a</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Ff_a</span><span class="p">(</span><span class="nb">i</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c">% 根据环空内动量守恒方程，计算环空内压力的新值</span>
+<span class="w">        </span><span class="n">err_P</span><span class="p">=</span><span class="nb">abs</span><span class="p">(</span><span class="n">P_a_new</span><span class="o">-</span><span class="n">P_a</span><span class="p">(</span><span class="nb">i</span><span class="p">))</span><span class="o">/</span><span class="n">P_a</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span><span class="w"> </span><span class="c">% 计算假设压力与新计算压力之间的相对误差</span>
+<span class="w">        </span><span class="n">P_a</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="n">P_a_new</span><span class="p">;</span><span class="w"> </span><span class="c">% 将新计算压力赋值给假设压力</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">FrictionalPressureDrop_annulus</span><span class="p">(</span><span class="mi">1</span><span class="p">)=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c">% FrictionalPressureDrop_annulus为环空摩擦压降</span>
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">2</span><span class="p">:</span><span class="n">Nx</span>
+<span class="w">    </span><span class="n">FrictionalPressureDrop_annulus</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="n">FrictionalPressureDrop_annulus</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Ff_a</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">*</span><span class="n">dz</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 沿井深对环空摩擦压降累计求和</span>
+<span class="k">end</span>
+
+<span class="c">%% 钻头压降计算</span>
+<span class="n">C</span><span class="p">=</span><span class="mf">0.95</span><span class="p">;</span><span class="w"> </span><span class="c">% C为喷嘴流量系数</span>
+<span class="n">d_nozzle</span><span class="p">=</span><span class="mf">12.7</span><span class="p">;</span><span class="w"> </span><span class="c">% d_nozzle为喷嘴直径（mm）</span>
+<span class="n">d_nozzle</span><span class="p">=</span><span class="n">d_nozzle</span><span class="o">/</span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="c">% 将喷嘴直径单位从mm转换为m</span>
+<span class="n">m_nozzle</span><span class="p">=</span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="c">% m_nozzle为喷嘴个数</span>
+<span class="n">delta_P_bit</span><span class="p">=</span><span class="n">Bit_PressureDrop</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="n">d_nozzle</span><span class="p">,</span><span class="n">m_nozzle</span><span class="p">,</span><span class="n">Qv_0</span><span class="p">,</span><span class="n">rho_0</span><span class="p">);</span><span class="w"> </span><span class="c">% 根据钻头压降公式，计算钻头压降delta_P_bit（Pa）</span>
+
+<span class="c">%% 钻杆压力计算</span>
+<span class="c">% 1代表井口，Nx代表井底</span>
+<span class="c">% P_d为钻杆压力（Pa）,V_d为钻杆内钻井液速度（m/s），A_d为钻杆内截面积（m^2），mu_p_d为钻杆内钻井液的塑性黏度（Pa·s）,Ff_d为钻杆内单位长度上的压降（Pa/m）</span>
+<span class="n">P_d</span><span class="p">(</span><span class="n">Nx</span><span class="p">)=</span><span class="n">P_a</span><span class="p">(</span><span class="n">Nx</span><span class="p">)</span><span class="o">+</span><span class="n">delta_P_bit</span><span class="p">;</span><span class="w"> </span><span class="c">% 钻杆内井底压力=环空内井底压力+钻头压降</span>
+<span class="n">rho_d</span><span class="p">(</span><span class="n">Nx</span><span class="p">)=</span><span class="n">Density_TP</span><span class="p">(</span><span class="n">rho_0</span><span class="p">,</span><span class="n">T_0</span><span class="p">,</span><span class="n">P_0</span><span class="p">,</span><span class="n">T_d</span><span class="p">(</span><span class="n">Nx</span><span class="p">),</span><span class="n">P_d</span><span class="p">(</span><span class="n">Nx</span><span class="p">));</span><span class="w"> </span><span class="c">% 计算钻杆中当前网格的密度</span>
+<span class="n">V_d</span><span class="p">(</span><span class="n">Nx</span><span class="p">)=(</span><span class="n">rho_a</span><span class="p">(</span><span class="n">Nx</span><span class="p">)</span><span class="o">*</span><span class="n">V_a</span><span class="p">(</span><span class="n">Nx</span><span class="p">)</span><span class="o">*</span><span class="n">A_a</span><span class="p">(</span><span class="n">Nx</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">rho_d</span><span class="p">(</span><span class="n">Nx</span><span class="p">)</span><span class="o">*</span><span class="n">A_d</span><span class="p">(</span><span class="n">Nx</span><span class="p">));</span><span class="w"> </span><span class="c">% 钻杆内钻井液流速=质量排量/密度/钻杆内截面积</span>
+<span class="n">mu_p_d</span><span class="p">(</span><span class="n">Nx</span><span class="p">)=</span><span class="n">Rheology_TP</span><span class="p">(</span><span class="n">mu_p_0</span><span class="p">,</span><span class="n">T_0</span><span class="p">,</span><span class="n">P_0</span><span class="p">,</span><span class="n">T_d</span><span class="p">(</span><span class="n">Nx</span><span class="p">),</span><span class="n">P_d</span><span class="p">(</span><span class="n">Nx</span><span class="p">));</span><span class="w"> </span><span class="c">% 计算钻杆中当前网格的塑性黏度</span>
+<span class="p">[</span><span class="n">Ff_d</span><span class="p">(</span><span class="n">Nx</span><span class="p">),</span><span class="n">flow_pattern_d</span><span class="p">(</span><span class="n">Nx</span><span class="p">)]=</span><span class="n">Friction_drillpipe</span><span class="p">(</span><span class="n">rho_d</span><span class="p">(</span><span class="n">Nx</span><span class="p">),</span><span class="n">V_d</span><span class="p">(</span><span class="n">Nx</span><span class="p">),</span><span class="n">mu_p_d</span><span class="p">(</span><span class="n">Nx</span><span class="p">),</span><span class="n">tau_y</span><span class="p">,</span><span class="n">D_d_i</span><span class="p">(</span><span class="n">Nx</span><span class="p">),</span><span class="n">Qm_0</span><span class="p">);</span><span class="w"> </span><span class="c">% 计算钻杆中当前网格的单位长度压降和流型（层流、湍流）</span>
+
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="n">Nx</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span>
+<span class="w">    </span><span class="n">P_d</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="n">P_d</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">rho_d</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">dz</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span><span class="w"> </span><span class="c">% 根据前一网格压力及前一个网格中钻井液重力压降，假设当前网格的压力</span>
+<span class="w">    </span><span class="n">err_P</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c">% 给定压力的初始误差，使其进入迭代循环</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">err_P</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">1e-4</span><span class="w"> </span><span class="c">% 压力收敛的判断标准</span>
+<span class="w">        </span><span class="n">rho_d</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="n">Density_TP</span><span class="p">(</span><span class="n">rho_0</span><span class="p">,</span><span class="n">T_0</span><span class="p">,</span><span class="n">P_0</span><span class="p">,</span><span class="n">T_d</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">P_d</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span><span class="w"> </span><span class="c">% 计算当前温度、压力下的钻杆内钻井液密度</span>
+<span class="w">        </span><span class="n">V_d</span><span class="p">(</span><span class="nb">i</span><span class="p">)=(</span><span class="n">rho_d</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">V_d</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">A_d</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">rho_d</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">*</span><span class="n">A_d</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span><span class="w"> </span><span class="c">% 根据钻杆内质量守恒方程，计算钻杆内钻井液流速</span>
+<span class="w">        </span><span class="n">mu_p_d</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="n">Rheology_TP</span><span class="p">(</span><span class="n">mu_p_0</span><span class="p">,</span><span class="n">T_0</span><span class="p">,</span><span class="n">P_0</span><span class="p">,</span><span class="n">T_d</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">P_d</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span><span class="w"> </span><span class="c">% 计算当前温度、压力下的钻杆内钻井液塑性黏度</span>
+<span class="w">        </span><span class="p">[</span><span class="n">Ff_d</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">flow_pattern_d</span><span class="p">(</span><span class="nb">i</span><span class="p">)]=</span><span class="n">Friction_drillpipe</span><span class="p">(</span><span class="n">rho_d</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">V_d</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">mu_p_d</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">tau_y</span><span class="p">,</span><span class="n">D_d_i</span><span class="p">(</span><span class="nb">i</span><span class="p">),</span><span class="n">Qm_0</span><span class="p">);</span><span class="w"> </span><span class="c">% 计算钻杆中当前网格的单位长度压降和流型（层流、湍流）</span>
+<span class="w">        </span><span class="n">P_d_new</span><span class="p">=</span><span class="n">P_d</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">rho_d</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">V_d</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>^<span class="mi">2</span><span class="o">-</span><span class="n">rho_d</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">*</span><span class="n">V_d</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span>^<span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">dz</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">rho_d</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">(</span><span class="nb">i</span><span class="p">))</span><span class="o">+</span><span class="n">rho_d</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">dz</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Ff_d</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">+</span><span class="n">Ff_d</span><span class="p">(</span><span class="nb">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c">% 根据钻杆内动量守恒方程，计算钻杆内压力的新值</span>
+<span class="w">        </span><span class="n">err_P</span><span class="p">=</span><span class="nb">abs</span><span class="p">(</span><span class="n">P_d_new</span><span class="o">-</span><span class="n">P_d</span><span class="p">(</span><span class="nb">i</span><span class="p">))</span><span class="o">/</span><span class="n">P_d</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span><span class="w"> </span><span class="c">% 计算假设压力与新计算压力之间的相对误差</span>
+<span class="w">        </span><span class="n">P_d</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="n">P_d_new</span><span class="p">;</span><span class="w"> </span><span class="c">% 将新计算压力赋值给假设压力</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">FrictionalPressureDrop_drillpipe</span><span class="p">(</span><span class="mi">1</span><span class="p">)=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c">% FrictionalPressureDrop_drillpipe为钻杆摩擦压降</span>
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">2</span><span class="p">:</span><span class="n">Nx</span>
+<span class="w">    </span><span class="n">FrictionalPressureDrop_drillpipe</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="n">FrictionalPressureDrop_drillpipe</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Ff_d</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">*</span><span class="n">dz</span><span class="p">(</span><span class="nb">i</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 沿井深对钻杆摩擦压降累计求和</span>
+<span class="k">end</span>
+
+<span class="c">%% 计算绘图所需的变量</span>
+<span class="c">% 计算环空中当量循环密度ECD（Equivalent circulating density）</span>
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">2</span><span class="p">:</span><span class="n">Nx</span><span class="w"> </span><span class="c">% 从第二个网格点开始计算，第一个网格点处井深为0</span>
+<span class="w">    </span><span class="n">ECD</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="n">P_a</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">g</span><span class="o">*</span><span class="n">Depth</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span><span class="w"> </span><span class="c">% ECD=压力/井深/重力加速度</span>
+<span class="w">    </span><span class="n">ECD</span><span class="p">(</span><span class="nb">i</span><span class="p">)=</span><span class="n">ECD</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="c">% 将ECD单位转化为g/cm^3</span>
+<span class="k">end</span>
+
+<span class="c">%% 在Matlab命令行窗口输出数据</span>
+<span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;宾汉模型\n&#39;</span><span class="p">);</span>
+<span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;入口压力（MPa）：%8.5f\n&#39;</span><span class="p">,</span><span class="n">P_d</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span>^<span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c">% 输出入口压力，以MPa为单位</span>
+<span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;井底压力（MPa）：%8.5f\n&#39;</span><span class="p">,</span><span class="n">P_a</span><span class="p">(</span><span class="n">Nx</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span>^<span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c">% 输出井底压力，以MPa为单位</span>
+<span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;钻柱摩擦压降（MPa）：%8.5f\n&#39;</span><span class="p">,</span><span class="n">FrictionalPressureDrop_drillpipe</span><span class="p">(</span><span class="n">Nx</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span>^<span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c">% 输出钻杆内摩擦压降，以MPa为单位</span>
+<span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;环空摩擦压降（MPa）：%8.5f\n&#39;</span><span class="p">,</span><span class="n">FrictionalPressureDrop_annulus</span><span class="p">(</span><span class="n">Nx</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span>^<span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c">% 输出环空内摩擦压降，以MPa为单位</span>
+<span class="nb">fprintf</span><span class="p">(</span><span class="s">&#39;钻头压降（MPa）：%8.5f\n&#39;</span><span class="p">,</span><span class="n">delta_P_bit</span><span class="o">/</span><span class="mi">10</span>^<span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c">% 输出钻头压降，以MPa为单位</span>
+
+<span class="c">%% 绘制井筒压力随井深变化曲线</span>
+<span class="n">h</span><span class="p">=</span><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 绘制井筒压力随井深变化曲线</span>
+<span class="nb">set</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="s">&#39;井筒压力随井深变化曲线&#39;</span><span class="p">,</span><span class="s">&#39;Numbertitle&#39;</span><span class="p">,</span><span class="s">&#39;off&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 给Figure改窗口名称</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">P_d</span><span class="o">/</span><span class="mi">10</span>^<span class="mi">6</span><span class="p">,</span><span class="n">Depth</span><span class="p">,</span><span class="s">&#39;r-&#39;</span><span class="p">,</span><span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 绘制钻杆内压力随井深变化</span>
+<span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 保持曲线</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">P_a</span><span class="o">/</span><span class="mi">10</span>^<span class="mi">6</span><span class="p">,</span><span class="n">Depth</span><span class="p">,</span><span class="s">&#39;b-.&#39;</span><span class="p">,</span><span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 绘制环空内压力随井深变化</span>
+<span class="nb">hold</span><span class="w"> </span><span class="n">off</span><span class="p">;</span><span class="w"> </span><span class="c">% 替换曲线</span>
+<span class="nb">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;YDir&#39;</span><span class="p">,</span><span class="s">&#39;reverse&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 对Y坐标轴反转</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;井筒压力随井深变化曲线&#39;</span><span class="p">,</span><span class="s">&#39;FontWeight&#39;</span><span class="p">,</span><span class="s">&#39;Bold&#39;</span><span class="p">,</span><span class="s">&#39;Color&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置曲线标题</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;压力（MPa）&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置X坐标轴标题</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;井深（m）&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置Y坐标轴标题</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;钻杆内压力&#39;</span><span class="p">,</span><span class="s">&#39;环空内压力&#39;</span><span class="p">,</span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="s">&#39;Best&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置图例及位置</span>
+<span class="nb">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;FontSize&#39;</span><span class="p">,</span><span class="mi">14</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置文字大小，同时影响坐标轴标注、图例、标题等</span>
+<span class="nb">box</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的边框</span>
+<span class="nb">grid</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的主网格线</span>
+<span class="nb">grid</span><span class="w"> </span><span class="n">minor</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的次网格线</span>
+<span class="nb">pan</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 打开鼠标拖曳，在Figure中右击选择“重置为原始视图”即可恢复</span>
+<span class="nb">zoom</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 打开内部绘图缩放工具。单击左键或框选区域时放大，按住Alt键时单击左键缩小，双击左键恢复原始大小；当绘图缩小至原始大小时，将不再缩小</span>
+
+<span class="c">%% 绘制ECD随井深变化曲线</span>
+<span class="n">h</span><span class="p">=</span><span class="nb">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 绘制ECD随井深变化曲线</span>
+<span class="nb">set</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="s">&#39;ECD随井深变化曲线&#39;</span><span class="p">,</span><span class="s">&#39;Numbertitle&#39;</span><span class="p">,</span><span class="s">&#39;off&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 给Figure改窗口名称</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">ECD</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="p">),</span><span class="n">Depth</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="p">),</span><span class="s">&#39;r-&#39;</span><span class="p">,</span><span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 绘制环空内ECD随井深变化</span>
+<span class="nb">xlim</span><span class="p">([</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">]);</span><span class="w"> </span><span class="c">% 设置X坐标轴上下限</span>
+<span class="nb">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;YDir&#39;</span><span class="p">,</span><span class="s">&#39;reverse&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 对Y坐标轴反转</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;ECD随井深变化曲线&#39;</span><span class="p">,</span><span class="s">&#39;FontWeight&#39;</span><span class="p">,</span><span class="s">&#39;Bold&#39;</span><span class="p">,</span><span class="s">&#39;Color&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置曲线标题</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;ECD（g/cm^3）&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置X坐标轴标题</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;井深（m）&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置Y坐标轴标题</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;ECD&#39;</span><span class="p">,</span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="s">&#39;Best&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置图例及位置</span>
+<span class="nb">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;FontSize&#39;</span><span class="p">,</span><span class="mi">14</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置文字大小，同时影响坐标轴标注、图例、标题等</span>
+<span class="nb">box</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的边框</span>
+<span class="nb">grid</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的主网格线</span>
+<span class="nb">grid</span><span class="w"> </span><span class="n">minor</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的次网格线</span>
+<span class="nb">pan</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 打开鼠标拖曳，在Figure中右击选择“重置为原始视图”即可恢复</span>
+<span class="nb">zoom</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 打开内部绘图缩放工具。单击左键或框选区域时放大，按住Alt键时单击左键缩小，双击左键恢复原始大小；当绘图缩小至原始大小时，将不再缩小</span>
+
+<span class="c">%% 绘制井筒摩擦压耗随井深变化曲线</span>
+<span class="n">h</span><span class="p">=</span><span class="nb">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="c">% 绘制井筒压耗随井深变化曲线</span>
+<span class="nb">set</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="s">&#39;井筒压耗随井深变化曲线&#39;</span><span class="p">,</span><span class="s">&#39;Numbertitle&#39;</span><span class="p">,</span><span class="s">&#39;off&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 给Figure改窗口名称</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">FrictionalPressureDrop_drillpipe</span><span class="o">/</span><span class="mi">10</span>^<span class="mi">6</span><span class="p">,</span><span class="n">Depth</span><span class="p">,</span><span class="s">&#39;r-&#39;</span><span class="p">,</span><span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 绘制钻杆内钻井液压耗随井深变化曲线</span>
+<span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 保持曲线</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">FrictionalPressureDrop_annulus</span><span class="o">/</span><span class="mi">10</span>^<span class="mi">6</span><span class="p">,</span><span class="n">Depth</span><span class="p">,</span><span class="s">&#39;b-.&#39;</span><span class="p">,</span><span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 绘制环空内钻井液压耗随井深变化曲线</span>
+<span class="nb">hold</span><span class="w"> </span><span class="n">off</span><span class="p">;</span><span class="w"> </span><span class="c">% 替换曲线</span>
+<span class="nb">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;YDir&#39;</span><span class="p">,</span><span class="s">&#39;reverse&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 对Y坐标轴反转</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;井筒压耗随井深变化曲线&#39;</span><span class="p">,</span><span class="s">&#39;FontWeight&#39;</span><span class="p">,</span><span class="s">&#39;Bold&#39;</span><span class="p">,</span><span class="s">&#39;Color&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置曲线标题</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;压耗（MPa）&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置X坐标轴标题</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;井深（m）&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置Y坐标轴标题</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;钻杆压耗&#39;</span><span class="p">,</span><span class="s">&#39;环空压耗&#39;</span><span class="p">,</span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="s">&#39;Best&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置图例及位置</span>
+<span class="nb">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;FontSize&#39;</span><span class="p">,</span><span class="mi">14</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置文字大小，同时影响坐标轴标注、图例、标题等</span>
+<span class="nb">box</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的边框</span>
+<span class="nb">grid</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的主网格线</span>
+<span class="nb">grid</span><span class="w"> </span><span class="n">minor</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的次网格线</span>
+<span class="nb">pan</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 打开鼠标拖曳，在Figure中右击选择“重置为原始视图”即可恢复</span>
+<span class="nb">zoom</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 打开内部绘图缩放工具。单击左键或框选区域时放大，按住Alt键时单击左键缩小，双击左键恢复原始大小；当绘图缩小至原始大小时，将不再缩小</span>
+
+<span class="c">%% 绘制钻井液流速随井深变化曲线</span>
+<span class="n">h</span><span class="p">=</span><span class="nb">figure</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"> </span><span class="c">% 绘制钻井液流速随井深变化曲线</span>
+<span class="nb">set</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="s">&#39;钻井液流速随井深变化曲线&#39;</span><span class="p">,</span><span class="s">&#39;Numbertitle&#39;</span><span class="p">,</span><span class="s">&#39;off&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 给Figure改窗口名称</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">V_d</span><span class="p">,</span><span class="n">Depth</span><span class="p">,</span><span class="s">&#39;r-&#39;</span><span class="p">,</span><span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 绘制钻杆内钻井液流速随井深变化曲线</span>
+<span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 保持曲线</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">V_a</span><span class="p">,</span><span class="n">Depth</span><span class="p">,</span><span class="s">&#39;b-.&#39;</span><span class="p">,</span><span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 绘制环空内钻井液流速随井深变化曲线</span>
+<span class="nb">hold</span><span class="w"> </span><span class="n">off</span><span class="p">;</span><span class="w"> </span><span class="c">% 替换曲线</span>
+<span class="nb">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;YDir&#39;</span><span class="p">,</span><span class="s">&#39;reverse&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 对Y坐标轴反转</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;钻井液流速随井深变化曲线&#39;</span><span class="p">,</span><span class="s">&#39;FontWeight&#39;</span><span class="p">,</span><span class="s">&#39;Bold&#39;</span><span class="p">,</span><span class="s">&#39;Color&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置曲线标题</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;钻井液流速（m/s）&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置X坐标轴标题</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;井深（m）&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置Y坐标轴标题</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;钻杆内钻井液流速&#39;</span><span class="p">,</span><span class="s">&#39;环空内钻井液流速&#39;</span><span class="p">,</span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="s">&#39;Best&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置图例及位置</span>
+<span class="nb">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;FontSize&#39;</span><span class="p">,</span><span class="mi">14</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置文字大小，同时影响坐标轴标注、图例、标题等</span>
+<span class="nb">box</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的边框</span>
+<span class="nb">grid</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的主网格线</span>
+<span class="nb">grid</span><span class="w"> </span><span class="n">minor</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的次网格线</span>
+<span class="nb">pan</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 打开鼠标拖曳，在Figure中右击选择“重置为原始视图”即可恢复</span>
+<span class="nb">zoom</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 打开内部绘图缩放工具。单击左键或框选区域时放大，按住Alt键时单击左键缩小，双击左键恢复原始大小；当绘图缩小至原始大小时，将不再缩小</span>
+
+<span class="c">%% 绘制井筒流型随井深变化曲线</span>
+<span class="n">h</span><span class="p">=</span><span class="nb">figure</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"> </span><span class="c">% 绘制井筒流型随井深变化曲线</span>
+<span class="nb">set</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="s">&#39;井筒流型随井深变化曲线&#39;</span><span class="p">,</span><span class="s">&#39;Numbertitle&#39;</span><span class="p">,</span><span class="s">&#39;off&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 给Figure改窗口名称</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">flow_pattern_d</span><span class="p">,</span><span class="n">Depth</span><span class="p">,</span><span class="s">&#39;r-&#39;</span><span class="p">,</span><span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 绘制钻杆内钻井液流型随井深变化曲线</span>
+<span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 保持曲线</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">flow_pattern_a</span><span class="p">,</span><span class="n">Depth</span><span class="p">,</span><span class="s">&#39;b-.&#39;</span><span class="p">,</span><span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 绘制环空内钻井液流型随井深变化曲线</span>
+<span class="nb">hold</span><span class="w"> </span><span class="n">off</span><span class="p">;</span><span class="w"> </span><span class="c">% 替换曲线</span>
+<span class="nb">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;YDir&#39;</span><span class="p">,</span><span class="s">&#39;reverse&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 对Y坐标轴反转</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;井筒流型随井深变化曲线&#39;</span><span class="p">,</span><span class="s">&#39;FontWeight&#39;</span><span class="p">,</span><span class="s">&#39;Bold&#39;</span><span class="p">,</span><span class="s">&#39;Color&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置曲线标题</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;流型&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置X坐标轴标题</span>
+<span class="nb">xlim</span><span class="p">([</span><span class="mf">0.8</span><span class="w"> </span><span class="mf">3.2</span><span class="p">])</span><span class="w"> </span><span class="c">% 设置X轴刻度上下限</span>
+<span class="nb">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;xtick&#39;</span><span class="p">,[</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">]);</span><span class="w"> </span><span class="c">% 设置X轴坐标轴刻度，1代表层流，2代表过渡流，3代表湍流。对于宾汉流型，只有层流和湍流的区分</span>
+<span class="nb">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;xticklabel&#39;</span><span class="p">,{</span><span class="s">&#39;层流&#39;</span><span class="p">,</span><span class="s">&#39;过渡流&#39;</span><span class="p">,</span><span class="s">&#39;湍流&#39;</span><span class="p">});</span><span class="w"> </span><span class="c">% 将X轴坐标轴刻度的数值转换为对应中文字符</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;井深（m）&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置Y坐标轴标题</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;钻杆内流型&#39;</span><span class="p">,</span><span class="s">&#39;环空内流型&#39;</span><span class="p">,</span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="s">&#39;Best&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置图例及位置</span>
+<span class="nb">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;FontSize&#39;</span><span class="p">,</span><span class="mi">14</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置文字大小，同时影响坐标轴标注、图例、标题等</span>
+<span class="nb">box</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的边框</span>
+<span class="nb">grid</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的主网格线</span>
+<span class="nb">grid</span><span class="w"> </span><span class="n">minor</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的次网格线</span>
+<span class="nb">pan</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 打开鼠标拖曳，在Figure中右击选择“重置为原始视图”即可恢复</span>
+<span class="nb">zoom</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 打开内部绘图缩放工具。单击左键或框选区域时放大，按住Alt键时单击左键缩小，双击左键恢复原始大小；当绘图缩小至原始大小时，将不再缩小</span>
+
+<span class="c">%% 绘制井筒温度随井深变化曲线</span>
+<span class="n">h</span><span class="p">=</span><span class="nb">figure</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span><span class="w"> </span><span class="c">% 绘制井筒温度随井深变化曲线</span>
+<span class="k">for</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">Time_T</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">plot</span><span class="p">(</span><span class="n">T_d_T</span><span class="p">(:,</span><span class="n">t</span><span class="p">),</span><span class="n">Depth_T</span><span class="p">,</span><span class="n">T_a_T</span><span class="p">(:,</span><span class="n">t</span><span class="p">),</span><span class="n">Depth_T</span><span class="p">,</span><span class="s">&#39;--&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 绘制井筒温度随井深变化曲线</span>
+<span class="w">    </span><span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;温度（℃）&#39;</span><span class="p">,</span><span class="s">&#39;FontName&#39;</span><span class="p">,</span><span class="s">&#39;黑体&#39;</span><span class="p">,</span><span class="s">&#39;FontSize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置X坐标轴标题</span>
+<span class="w">    </span><span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;井深（m）&#39;</span><span class="p">,</span><span class="s">&#39;FontName&#39;</span><span class="p">,</span><span class="s">&#39;黑体&#39;</span><span class="p">,</span><span class="s">&#39;FontSize&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置Y坐标轴标题</span>
+<span class="w">    </span><span class="nb">title</span><span class="p">([</span><span class="nb">num2str</span><span class="p">(</span><span class="n">Time_T</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span><span class="p">),</span><span class="s">&#39; min&#39;</span><span class="p">]);</span><span class="w"> </span><span class="c">% 设置曲线标题</span>
+<span class="w">    </span><span class="nb">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;YDir&#39;</span><span class="p">,</span><span class="s">&#39;reverse&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 对Y坐标轴反转</span>
+<span class="w">    </span><span class="nb">legend</span><span class="p">(</span><span class="s">&#39;钻杆内温度&#39;</span><span class="p">,</span><span class="s">&#39;环空内温度&#39;</span><span class="p">,</span><span class="s">&#39;Location&#39;</span><span class="p">,</span><span class="s">&#39;Best&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置图例及位置</span>
+<span class="w">    </span><span class="nb">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;FontSize&#39;</span><span class="p">,</span><span class="mi">14</span><span class="p">);</span><span class="w"> </span><span class="c">% 设置文字大小</span>
+<span class="w">    </span><span class="nb">box</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的边框</span>
+<span class="w">    </span><span class="nb">grid</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的主网格线</span>
+<span class="w">    </span><span class="nb">grid</span><span class="w"> </span><span class="n">minor</span><span class="p">;</span><span class="w"> </span><span class="c">% 显示坐标轴的次网格线</span>
+<span class="w">    </span><span class="nb">pan</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 打开鼠标拖曳，在Figure中右击选择“重置为原始视图”即可恢复</span>
+<span class="w">    </span><span class="nb">zoom</span><span class="w"> </span><span class="n">on</span><span class="p">;</span><span class="w"> </span><span class="c">% 打开内部绘图缩放工具。单击左键或框选区域时放大，按住Alt键时单击左键缩小，双击左键恢复原始大小；当绘图缩小至原始大小时，将不再缩小</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="nb">pause</span><span class="p">(</span><span class="mf">0.001</span><span class="p">);</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>宾汉模型
+入口压力（MPa）： 6.61073
+井底压力（MPa）：62.67752
+钻柱摩擦压降（MPa）： 1.90587
+环空摩擦压降（MPa）： 4.88605
+钻头压降（MPa）： 0.01598
+</pre></div>
+</div>
+<img alt="_images/31454b84ba4a5943f4245a3298b96032488c4681dec5f73bd397ce11690398e4.png" src="_images/31454b84ba4a5943f4245a3298b96032488c4681dec5f73bd397ce11690398e4.png" />
+<img alt="_images/9ded36264f083228d38c424f39c3079474131ca7e17e3103cd389cdbce1cf8ec.png" src="_images/9ded36264f083228d38c424f39c3079474131ca7e17e3103cd389cdbce1cf8ec.png" />
+<img alt="_images/f0fd5514e305d12bbee258de2e85e88b33624e28e0eaa02d26924dccb6fca394.png" src="_images/f0fd5514e305d12bbee258de2e85e88b33624e28e0eaa02d26924dccb6fca394.png" />
+<img alt="_images/528f1115545d1dc8b6379e6a4ff30ab9ab56d41c260c260a2eb68f9c90019aa9.png" src="_images/528f1115545d1dc8b6379e6a4ff30ab9ab56d41c260c260a2eb68f9c90019aa9.png" />
+<img alt="_images/2e171c720e89ca8f7f410c3db6bd1fd6d4c13d0b24f21406b0817f8a8ba42ed4.png" src="_images/2e171c720e89ca8f7f410c3db6bd1fd6d4c13d0b24f21406b0817f8a8ba42ed4.png" />
+<img alt="_images/d5e68e305488fef6c1f24463e97b83800751c689cf34bbdd2d879a0d4dfd6a90.png" src="_images/d5e68e305488fef6c1f24463e97b83800751c689cf34bbdd2d879a0d4dfd6a90.png" />
+<img alt="_images/573ff41a47ef905e831b801107f963b1368c8dc74085e65bc559e47b5497c2c2.png" src="_images/573ff41a47ef905e831b801107f963b1368c8dc74085e65bc559e47b5497c2c2.png" />
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "jupyter_matlab_kernel"
+        },
+        kernelOptions: {
+            name: "jupyter_matlab_kernel",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'jupyter_matlab_kernel'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
