@@ -3,9 +3,63 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
-- file: 01-高温高压钻井液性质预测模型
-- file: 02-井筒温度
+#chapters:
+#- file: markdown
+#- file: notebooks
+#- file: markdown-notebooks
+#- file: 01-高温高压钻井液性质预测模型
+#- file: 02-井筒温度
+#- file: 01-高温高压钻井液性质预测模型
+#- file: 02-井筒温度
+#- file: 03-密度组分模型
+#- file: 04-盐水密度组分模型
+#- file: 05-井筒压力
+#  sections:
+#    - file: Newtonian-NormalTP-ConstantGeometry
+#    - file: Newtonian-NormalTP-VariantGeometry
+#    - file: Newtonian-HTHP-ConstantGeometry
+#    - file: Newtonian-HTHP-VariantGeometry
+#- file: 03-密度组分模型
+#  sections:
+#  - file: Newtonian-type1
+#  - file: Newtonian-type2
+parts:
+  - caption: 介绍
+    chapters:
+    - file: markdown
+    - file: notebooks
+    - file: markdown-notebooks
+  - caption: 井下风险诊断模块知识库
+    chapters:
+    - file: 01-高温高压钻井液性质预测模型
+    - file: 02-井筒温度
+    - file: 03-密度组分模型
+    - file: 04-盐水密度组分模型
+    - file: 05-井筒压力
+      sections:
+        - file: 井筒压力-牛顿
+          sections:
+            - file: Newtonian-NormalTP-ConstantGeometry
+            - file: Newtonian-NormalTP-VariantGeometry
+            - file: Newtonian-HTHP-ConstantGeometry
+            - file: Newtonian-HTHP-VariantGeometry
+        - file: 井筒压力-宾汉
+          sections:
+            - file: Bingham-NormalTP-ConstantGeometry
+            - file: Bingham-NormalTP-VariantGeometry
+            - file: Bingham-HTHP-ConstantGeometry
+            - file: Bingham-HTHP-VariantGeometry
+    - file: 06-注替压力
+      sections:
+        - file: 注替压力-牛顿
+          sections:
+            - file: Newtonian-type1
+            - file: Newtonian-type2
+    - file : 07-波动压力-不考虑管柱黏附作用
+    - file : 08-波动压力-考虑管柱黏附作用
+    - file: 09-摩阻扭矩
+      sections:
+        - file: 摩阻扭矩-Soft_rotate_Fe_Mt
+        - file: 摩阻扭矩-Soft_slide_Fe
+        - file: 摩阻扭矩-Stiff_rotate_Fe_Mt
+        - file: 摩阻扭矩-Stiff_slide_Fe
