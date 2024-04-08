@@ -468,8 +468,16 @@ download)</p>
 </li>
 <li><p>安装C++内核</p>
 <ul>
-<li><p>参考：<a class="reference external" href="https://blog.jupyter.org/interactive-workflows-for-c-with-jupyter-fe9b54227d92">https://blog.jupyter.org/interactive-workflows-for-c-with-jupyter-fe9b54227d92</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">xeus-cling</span></code></p></li>
+<li><p>从 <a class="reference external" href="https://winlibs.com/">WinLibs - GCC+MinGW-w64 compiler for Windows</a> 下载UCRT Runtime</p></li>
+<li><p>将.zip文件解压缩，压缩保内mingw目录(如mingw64或mingw32)复制到C盘根目录下</p></li>
+<li><p>将 <code class="docutils literal notranslate"><span class="pre">C:\mingw64\bin</span></code> 添加到环境变量PATH中</p></li>
+<li><p>运行以下命令检验安装是否成功</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">gcc</span> <span class="pre">-v</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g++</span> <span class="pre">-v</span></code></p></li>
+</ul>
+</li>
+<li><p>安装C++内核： <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyter-cpp-kernel</span></code></p></li>
 </ul>
 </li>
 <li><p>安装Go内核</p></li>
