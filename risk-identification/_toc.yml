@@ -59,6 +59,9 @@ parts:
     - file : 08-波动压力-考虑管柱黏附作用
     - file: 09-摩阻扭矩
       sections:
+        - file: 摩阻扭矩-井轨迹计算
+        - file: 摩阻扭矩-轨迹参数计算
+        - file: 摩阻扭矩-摩阻系数
         - file: 摩阻扭矩-Soft_rotate_Fe_Mt
         - file: 摩阻扭矩-Soft_slide_Fe
         - file: 摩阻扭矩-Stiff_rotate_Fe_Mt
