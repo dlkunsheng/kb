@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -214,7 +214,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="07-%E6%B3%A2%E5%8A%A8%E5%8E%8B%E5%8A%9B-%E4%B8%8D%E8%80%83%E8%99%91%E7%AE%A1%E6%9F%B1%E9%BB%8F%E9%99%84%E4%BD%9C%E7%94%A8.html">07-波动压力-不考虑管柱黏附作用</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08-%E6%B3%A2%E5%8A%A8%E5%8E%8B%E5%8A%9B-%E8%80%83%E8%99%91%E7%AE%A1%E6%9F%B1%E9%BB%8F%E9%99%84%E4%BD%9C%E7%94%A8.html">08-波动压力-考虑管柱黏附作用</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="09-%E6%91%A9%E9%98%BB%E6%89%AD%E7%9F%A9.html">摩阻扭矩</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="09-%E6%91%A9%E9%98%BB%E6%89%AD%E7%9F%A9.html">09-摩阻扭矩</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="%E6%91%A9%E9%98%BB%E6%89%AD%E7%9F%A9-%E4%BA%95%E8%BD%A8%E8%BF%B9%E8%AE%A1%E7%AE%97.html">摩阻扭矩-井轨迹计算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E6%91%A9%E9%98%BB%E6%89%AD%E7%9F%A9-%E8%BD%A8%E8%BF%B9%E5%8F%82%E6%95%B0%E8%AE%A1%E7%AE%97.html">摩阻扭矩-轨迹参数计算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%E6%91%A9%E9%98%BB%E6%89%AD%E7%9F%A9-%E6%91%A9%E9%98%BB%E7%B3%BB%E6%95%B0.html">摩阻扭矩-摩阻系数</a></li>
 <li class="toctree-l2"><a class="reference internal" href="%E6%91%A9%E9%98%BB%E6%89%AD%E7%9F%A9-Soft_rotate_Fe_Mt.html">Soft_rotate_Fe_Mt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="%E6%91%A9%E9%98%BB%E6%89%AD%E7%9F%A9-Soft_slide_Fe.html">Soft_slide_Fe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="%E6%91%A9%E9%98%BB%E6%89%AD%E7%9F%A9-Stiff_rotate_Fe_Mt.html">Stiff_rotate_Fe_Mt</a></li>
@@ -420,6 +423,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="stiff-slide-fe">
 <h1>Stiff_slide_Fe<a class="headerlink" href="#stiff-slide-fe" title="Link to this heading">#</a></h1>
+<p>dl 可以改 论文里是 1 5 10 30 60  目前是 1</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">clc</span><span class="p">;</span><span class="nb">clear</span><span class="p">;</span><span class="nb">close</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span>
@@ -452,13 +456,29 @@ document.write(`
 <span class="w">    </span><span class="p">[</span><span class="n">Fe</span><span class="p">,</span><span class="n">wc</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">drill_slide_stiff_cal_Fe</span><span class="p">(</span><span class="n">depth_i</span><span class="p">,</span><span class="n">pipe_parameters_i</span><span class="p">,</span><span class="n">well_parameters_i</span><span class="p">,</span><span class="n">drill_parameters_i</span><span class="p">,</span><span class="nb">alpha</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">tau</span><span class="p">,</span><span class="n">dk_ds</span><span class="p">,</span><span class="n">tz</span><span class="p">,</span><span class="n">nz</span><span class="p">,</span><span class="n">bz</span><span class="p">,</span><span class="n">mu_cal</span><span class="p">,</span><span class="n">dL</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w">    </span>
 <span class="w">    </span><span class="n">Hookload</span><span class="p">(</span><span class="nb">i</span><span class="p">,:)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Fe</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="p">;</span><span class="w">     </span><span class="c">% 记录相应深度处的大钩载荷值</span>
 <span class="w">    </span><span class="n">depth_cal</span><span class="p">(</span><span class="nb">i</span><span class="p">,:)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">depth_i</span><span class="p">;</span>
+<span class="w">    </span><span class="n">WC</span><span class="p">(</span><span class="nb">i</span><span class="p">,:)=</span><span class="n">wc</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="p">;</span>
 <span class="k">end</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">depth_cal</span><span class="p">,</span><span class="n">Hookload</span><span class="p">)</span>
+<span class="nb">figure</span><span class="p">(</span><span class="s">&#39;Name&#39;</span><span class="p">,</span><span class="s">&#39;大钩载荷&#39;</span><span class="p">);</span>
+
+<span class="nb">plot</span><span class="p">(</span><span class="n">depth_cal</span><span class="p">,</span><span class="n">Hookload</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">);</span>
+<span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;井深&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% x轴标签</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;管柱轴向力&#39;</span><span class="p">);</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&quot;管柱轴向力计算值&quot;</span><span class="p">);</span>
+<span class="n">hold</span><span class="w"> </span><span class="s">off</span><span class="p">;</span>
+<span class="nb">figure</span><span class="p">(</span><span class="s">&#39;Name&#39;</span><span class="p">,</span><span class="s">&#39;屈曲接触力&#39;</span><span class="p">);</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">depth_cal</span><span class="p">,</span><span class="n">WC</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">)</span>
+<span class="nb">hold</span><span class="w"> </span><span class="n">on</span><span class="p">;</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;井深&#39;</span><span class="p">);</span><span class="w"> </span><span class="c">% x轴标签</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;屈曲接触力&#39;</span><span class="p">);</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&quot;屈曲接触力&quot;</span><span class="p">);</span>
+<span class="n">hold</span><span class="w"> </span><span class="s">off</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b33145a96c51f3c7af5be3b68ab0c81fb7b104eb761337a27dc140c8aea94165.png" src="_images/b33145a96c51f3c7af5be3b68ab0c81fb7b104eb761337a27dc140c8aea94165.png" />
+<img alt="_images/d3b9a69849d05d36489d37be12e2533506327f260ea33b85a2c14a3c40d84cf2.png" src="_images/d3b9a69849d05d36489d37be12e2533506327f260ea33b85a2c14a3c40d84cf2.png" />
+<img alt="_images/20f8c04c8e16259f2086134d9df39a5dbce7f4daec064e3f710043ef01c43ff9.png" src="_images/20f8c04c8e16259f2086134d9df39a5dbce7f4daec064e3f710043ef01c43ff9.png" />
 </div>
 </div>
 </section>
