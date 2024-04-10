@@ -397,7 +397,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -413,6 +415,26 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorelle-1982">第一个模型  Sorelle – 1982</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#politte-1985">第二个模型 Politte – 1985</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minton-1988">第三个模型 Minton – 1988</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fisk-1989">第四个模型 Fisk – 1989</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">第五个模型 鄢捷年 – 1990</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eirik-1998">第六个模型 Eirik – 1998</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">第七个模型 周福建 – 1999</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">第八个模型 汪海阁 – 2000</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">第九个模型 张琰 – 2000</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">第十个模型 赵胜英 – 2009</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zamora-2013">第十一个模型 Zamora – 2013</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">第十二个模型 赵向阳 – 2013</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">第十三个模型 高禹 – 2019</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -424,11 +446,13 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>01-高温高压钻井液性质预测模型<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="sorelle-1982">
+<h2>第一个模型  Sorelle – 1982<a class="headerlink" href="#sorelle-1982" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">close</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clear</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clc</span><span class="p">;</span><span class="w"> </span><span class="c">% 关闭图窗、清空变量、清除命令窗口内容</span>
-<span class="nb">cd</span><span class="p">(</span><span class="s">&quot;D:\桌面\毕设\材料\20221127-结题材料\03-源代码\01 - 高温高压钻井液性质预测模型&quot;</span><span class="p">)</span><span class="w"> </span><span class="c">%%路径</span>
 <span class="c">%% 导入基础数据data</span>
+<span class="nb">cd</span><span class="p">(</span><span class="s">&quot;D:\桌面\毕设\材料\20221127-结题材料\03-源代码\01 - 高温高压钻井液性质预测模型&quot;</span><span class="p">)</span>
 <span class="n">data</span><span class="p">=</span><span class="n">csvread</span><span class="p">(</span><span class="s">&#39;data18.csv&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c">% data存储不同温度、压力及相应流体参数，其中第一列为温度（℃），第二列为压力（MPa），其余为相应流体参数</span>
 <span class="n">n</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"> </span><span class="c">% 数据（自变量+因变量）共多少行多少列</span>
 <span class="n">n_row</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 样本观测次数</span>
@@ -445,123 +469,15 @@ document.write(`
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_01</span>
 <span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_01</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第1个模型参数计算结果存储到RESULT中</span>
 <span class="w">    </span><span class="k">end</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="c">% 第2个模型（Politte – 1985）</span>
-<span class="w">    </span><span class="p">[</span><span class="n">result_02</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol02</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第2个模型参数计算结果</span>
-<span class="w">    </span><span class="n">rc_02</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_02</span><span class="p">);</span>
-<span class="w">    </span><span class="n">row_02</span><span class="p">=</span><span class="n">rc_02</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第2个模型参数计算结果构成的列向量有几行</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_02</span>
-<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="o">+</span><span class="n">row_01</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_02</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第2个模型参数计算结果存储到RESULT中</span>
-<span class="c">%         RESULT(j+row_01,i)=result_02(j,1); % 将第2个模型参数计算结果存储到RESULT中</span>
-<span class="w">    </span><span class="k">end</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="c">% 第3个模型（Minton – 1988）</span>
-<span class="w">    </span><span class="p">[</span><span class="n">result_03</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol03</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第3个模型参数计算结果</span>
-<span class="w">    </span><span class="n">rc_03</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_03</span><span class="p">);</span>
-<span class="w">    </span><span class="n">row_03</span><span class="p">=</span><span class="n">rc_03</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第3个模型参数计算结果构成的列向量有几行</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_03</span>
-<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="o">+</span><span class="n">row_01</span><span class="o">+</span><span class="n">row_02</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_03</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第3个模型参数计算结果存储到RESULT中</span>
-<span class="c">%         RESULT(j+row_01+row_02,i)=result_03(j,1); % 将第3个模型参数计算结果存储到RESULT中</span>
-<span class="w">    </span><span class="k">end</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="c">% 第4个模型（Fisk – 1989）</span>
-<span class="w">    </span><span class="p">[</span><span class="n">result_04</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol04</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第4个模型参数计算结果</span>
-<span class="w">    </span><span class="n">rc_04</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_04</span><span class="p">);</span>
-<span class="w">    </span><span class="n">row_04</span><span class="p">=</span><span class="n">rc_04</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第4个模型参数计算结果构成的列向量有几行</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_04</span>
-<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="o">+</span><span class="n">row_01</span><span class="o">+</span><span class="n">row_02</span><span class="o">+</span><span class="n">row_03</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_04</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第4个模型参数计算结果存储到RESULT中</span>
-<span class="c">%         RESULT(j+row_01+row_02+row_03,i)=result_04(j,1); % 将第4个模型参数计算结果存储到RESULT中</span>
-<span class="w">    </span><span class="k">end</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="c">% 第5个模型（鄢捷年 – 1990）</span>
-<span class="w">    </span><span class="p">[</span><span class="n">result_05</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol05</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第5个模型参数计算结果</span>
-<span class="w">    </span><span class="n">rc_05</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_05</span><span class="p">);</span>
-<span class="w">    </span><span class="n">row_05</span><span class="p">=</span><span class="n">rc_05</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第5个模型参数计算结果构成的列向量有几行</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_05</span>
-<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="o">+</span><span class="n">row_01</span><span class="o">+</span><span class="n">row_02</span><span class="o">+</span><span class="n">row_03</span><span class="o">+</span><span class="n">row_04</span><span class="o">+</span><span class="mi">4</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_05</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第5个模型参数计算结果存储到RESULT中</span>
-<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04,i)=result_05(j,1); % 将第5个模型参数计算结果存储到RESULT中</span>
-<span class="w">    </span><span class="k">end</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="c">% 第6个模型（Eirik – 1998）</span>
-<span class="w">    </span><span class="p">[</span><span class="n">result_06</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol06</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第6个模型参数计算结果</span>
-<span class="w">    </span><span class="n">rc_06</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_06</span><span class="p">);</span>
-<span class="w">    </span><span class="n">row_06</span><span class="p">=</span><span class="n">rc_06</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第6个模型参数计算结果构成的列向量有几行</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_06</span>
-<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="o">+</span><span class="n">row_01</span><span class="o">+</span><span class="n">row_02</span><span class="o">+</span><span class="n">row_03</span><span class="o">+</span><span class="n">row_04</span><span class="o">+</span><span class="n">row_05</span><span class="o">+</span><span class="mi">5</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_06</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第6个模型参数计算结果存储到RESULT中</span>
-<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04+row_05,i)=result_06(j,1); % 将第6个模型参数计算结果存储到RESULT中</span>
-<span class="w">    </span><span class="k">end</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="c">% 第7个模型（周福建 – 1999）</span>
-<span class="w">    </span><span class="p">[</span><span class="n">result_07</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol07</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第7个模型参数计算结果</span>
-<span class="w">    </span><span class="n">rc_07</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_07</span><span class="p">);</span>
-<span class="w">    </span><span class="n">row_07</span><span class="p">=</span><span class="n">rc_07</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第7个模型参数计算结果构成的列向量有几行</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_07</span>
-<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="o">+</span><span class="n">row_01</span><span class="o">+</span><span class="n">row_02</span><span class="o">+</span><span class="n">row_03</span><span class="o">+</span><span class="n">row_04</span><span class="o">+</span><span class="n">row_05</span><span class="o">+</span><span class="n">row_06</span><span class="o">+</span><span class="mi">6</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_07</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第7个模型参数计算结果存储到RESULT中</span>
-<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04+row_05+row_06,i)=result_07(j,1); % 将第7个模型参数计算结果存储到RESULT中</span>
-<span class="w">    </span><span class="k">end</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="c">% 第8个模型（汪海阁 – 2000）</span>
-<span class="w">    </span><span class="p">[</span><span class="n">result_08</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol08</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第8个模型参数计算结果</span>
-<span class="w">    </span><span class="n">rc_08</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_08</span><span class="p">);</span>
-<span class="w">    </span><span class="n">row_08</span><span class="p">=</span><span class="n">rc_08</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第8个模型参数计算结果构成的列向量有几行</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_08</span>
-<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="o">+</span><span class="n">row_01</span><span class="o">+</span><span class="n">row_02</span><span class="o">+</span><span class="n">row_03</span><span class="o">+</span><span class="n">row_04</span><span class="o">+</span><span class="n">row_05</span><span class="o">+</span><span class="n">row_06</span><span class="o">+</span><span class="n">row_07</span><span class="o">+</span><span class="mi">7</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_08</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第8个模型参数计算结果存储到RESULT中</span>
-<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04+row_05+row_06+row_07,i)=result_08(j,1); % 将第8个模型参数计算结果存储到RESULT中</span>
-<span class="w">    </span><span class="k">end</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="c">% 第9个模型（张琰 – 2000）</span>
-<span class="w">    </span><span class="p">[</span><span class="n">result_09</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol09</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第9个模型参数计算结果</span>
-<span class="w">    </span><span class="n">rc_09</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_09</span><span class="p">);</span>
-<span class="w">    </span><span class="n">row_09</span><span class="p">=</span><span class="n">rc_09</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第9个模型参数计算结果构成的列向量有几行</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_09</span>
-<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="o">+</span><span class="n">row_01</span><span class="o">+</span><span class="n">row_02</span><span class="o">+</span><span class="n">row_03</span><span class="o">+</span><span class="n">row_04</span><span class="o">+</span><span class="n">row_05</span><span class="o">+</span><span class="n">row_06</span><span class="o">+</span><span class="n">row_07</span><span class="o">+</span><span class="n">row_08</span><span class="o">+</span><span class="mi">8</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_09</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第9个模型参数计算结果存储到RESULT中</span>
-<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04+row_05+row_06+row_07+row_08,i)=result_09(j,1); % 将第9个模型参数计算结果存储到RESULT中</span>
-<span class="w">    </span><span class="k">end</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="c">% 第10个模型（赵胜英 – 2009）</span>
-<span class="w">    </span><span class="p">[</span><span class="n">result_10</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol10</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第10个模型参数计算结果</span>
-<span class="w">    </span><span class="n">rc_10</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_10</span><span class="p">);</span>
-<span class="w">    </span><span class="n">row_10</span><span class="p">=</span><span class="n">rc_10</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第10个模型参数计算结果构成的列向量有几行</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_10</span>
-<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="o">+</span><span class="n">row_01</span><span class="o">+</span><span class="n">row_02</span><span class="o">+</span><span class="n">row_03</span><span class="o">+</span><span class="n">row_04</span><span class="o">+</span><span class="n">row_05</span><span class="o">+</span><span class="n">row_06</span><span class="o">+</span><span class="n">row_07</span><span class="o">+</span><span class="n">row_08</span><span class="o">+</span><span class="n">row_09</span><span class="o">+</span><span class="mi">9</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_10</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第10个模型参数计算结果存储到RESULT中</span>
-<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04+row_05+row_06+row_07+row_08+row_09,i)=result_10(j,1); % 将第10个模型参数计算结果存储到RESULT中</span>
-<span class="w">    </span><span class="k">end</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="c">% 第11个模型（Zamora – 2013）</span>
-<span class="w">    </span><span class="p">[</span><span class="n">result_11</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol11</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第11个模型参数计算结果</span>
-<span class="w">    </span><span class="n">rc_11</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_11</span><span class="p">);</span>
-<span class="w">    </span><span class="n">row_11</span><span class="p">=</span><span class="n">rc_11</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第11个模型参数计算结果构成的列向量有几行</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_11</span>
-<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="o">+</span><span class="n">row_01</span><span class="o">+</span><span class="n">row_02</span><span class="o">+</span><span class="n">row_03</span><span class="o">+</span><span class="n">row_04</span><span class="o">+</span><span class="n">row_05</span><span class="o">+</span><span class="n">row_06</span><span class="o">+</span><span class="n">row_07</span><span class="o">+</span><span class="n">row_08</span><span class="o">+</span><span class="n">row_09</span><span class="o">+</span><span class="n">row_10</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_11</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第11个模型参数计算结果存储到RESULT中</span>
-<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04+row_05+row_06+row_07+row_08+row_09+row_10,i)=result_11(j,1); % 将第11个模型参数计算结果存储到RESULT中</span>
-<span class="w">    </span><span class="k">end</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="c">% 第12个模型（赵向阳 – 2013）</span>
-<span class="w">    </span><span class="p">[</span><span class="n">result_12</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol12</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第12个模型参数计算结果</span>
-<span class="w">    </span><span class="n">rc_12</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_12</span><span class="p">);</span>
-<span class="w">    </span><span class="n">row_12</span><span class="p">=</span><span class="n">rc_12</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第12个模型参数计算结果构成的列向量有几行</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_12</span>
-<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="o">+</span><span class="n">row_01</span><span class="o">+</span><span class="n">row_02</span><span class="o">+</span><span class="n">row_03</span><span class="o">+</span><span class="n">row_04</span><span class="o">+</span><span class="n">row_05</span><span class="o">+</span><span class="n">row_06</span><span class="o">+</span><span class="n">row_07</span><span class="o">+</span><span class="n">row_08</span><span class="o">+</span><span class="n">row_09</span><span class="o">+</span><span class="n">row_10</span><span class="o">+</span><span class="n">row_11</span><span class="o">+</span><span class="mi">11</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_12</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第12个模型参数计算结果存储到RESULT中</span>
-<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04+row_05+row_06+row_07+row_08+row_09+row_10+row_11,i)=result_12(j,1); % 将第12个模型参数计算结果存储到RESULT中</span>
-<span class="w">    </span><span class="k">end</span>
-<span class="w">    </span>
-<span class="w">    </span><span class="c">% 第13个模型（高禹 – 2019）</span>
-<span class="w">    </span><span class="p">[</span><span class="n">result_13</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol13</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第13个模型参数计算结果</span>
-<span class="w">    </span><span class="n">rc_13</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_13</span><span class="p">);</span>
-<span class="w">    </span><span class="n">row_13</span><span class="p">=</span><span class="n">rc_13</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第13个模型参数计算结果构成的列向量有几行</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_13</span>
-<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="o">+</span><span class="n">row_01</span><span class="o">+</span><span class="n">row_02</span><span class="o">+</span><span class="n">row_03</span><span class="o">+</span><span class="n">row_04</span><span class="o">+</span><span class="n">row_05</span><span class="o">+</span><span class="n">row_06</span><span class="o">+</span><span class="n">row_07</span><span class="o">+</span><span class="n">row_08</span><span class="o">+</span><span class="n">row_09</span><span class="o">+</span><span class="n">row_10</span><span class="o">+</span><span class="n">row_11</span><span class="o">+</span><span class="n">row_12</span><span class="o">+</span><span class="mi">12</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_13</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第13个模型参数计算结果存储到RESULT中</span>
-<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04+row_05+row_06+row_07+row_08+row_09+row_10+row_11+row_12,i)=result_13(j,1); % 将第13个模型参数计算结果存储到RESULT中</span>
-<span class="w">    </span><span class="k">end</span>
-<span class="w">    </span>
 <span class="k">end</span>
-
 <span class="n">RESULT</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><html><body><pre>RESULT = 122x9 double
+<img alt="_images/62d4547a770dd371d9f210c809fb4c2a39179960c494d083fe29779dbde870e7.png" src="_images/62d4547a770dd371d9f210c809fb4c2a39179960c494d083fe29779dbde870e7.png" />
+<img alt="_images/b882382459b1a69bb72a1f4cf90d9fc78817c1f9f3bbbaa24c55ddbd819a7b47.png" src="_images/b882382459b1a69bb72a1f4cf90d9fc78817c1f9f3bbbaa24c55ddbd819a7b47.png" />
+<div class="output text_html"><html><body><pre>RESULT = 7x9 double
    42.7000   50.3000   42.7000   42.7000   42.7000   50.3000   42.7000   42.7000   42.7000
    30.9000   30.2000   30.9000   30.9000   30.9000   30.2000   30.9000   30.9000   30.9000
     3.2342    0.0576    0.6607    0.5916    0.7866    0.0474    1.2983    0.8547    0.1706
@@ -569,11 +485,521 @@ document.write(`
     0.0131    0.0004   -0.0006    0.0043    0.0049    0.0003    0.0122    0.0006    0.0005
     0.8545    0.8454    0.2520    0.7451    0.6897    0.7814    0.6253    0.4768    0.8497
    13.8369    7.8807    4.4058   22.1643   31.0654    8.8896   28.1683    2.3520   13.6541
-         0         0         0         0         0         0         0         0         0
+</pre></body></html></div></div>
+</div>
+</section>
+<section id="politte-1985">
+<h2>第二个模型 Politte – 1985<a class="headerlink" href="#politte-1985" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">close</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clear</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clc</span><span class="p">;</span><span class="w"> </span><span class="c">% 关闭图窗、清空变量、清除命令窗口内容</span>
+<span class="c">%% 导入基础数据data</span>
+<span class="nb">cd</span><span class="p">(</span><span class="s">&quot;D:\桌面\毕设\材料\20221127-结题材料\03-源代码\01 - 高温高压钻井液性质预测模型&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">=</span><span class="n">csvread</span><span class="p">(</span><span class="s">&#39;data18.csv&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c">% data存储不同温度、压力及相应流体参数，其中第一列为温度（℃），第二列为压力（MPa），其余为相应流体参数</span>
+<span class="n">n</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"> </span><span class="c">% 数据（自变量+因变量）共多少行多少列</span>
+<span class="n">n_row</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 样本观测次数</span>
+<span class="n">n_col</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 自变量+因变量个数（因变量n_col-2个）</span>
+
+<span class="c">%% 模型参数计算</span>
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">n_col</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="c">% i代表列，也代表因变量</span>
+<span class="w">    </span><span class="n">Data</span><span class="p">=[</span><span class="n">data</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="nb">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)];</span><span class="w"> </span><span class="c">% 温度、压力与第i个因变量构成的n_row×3矩阵</span>
+<span class="w">     </span><span class="p">[</span><span class="n">result_02</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol02</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第2个模型参数计算结果</span>
+<span class="w">    </span><span class="n">rc_02</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_02</span><span class="p">);</span>
+<span class="w">    </span><span class="n">row_02</span><span class="p">=</span><span class="n">rc_02</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第2个模型参数计算结果构成的列向量有几行</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_02</span>
+<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_02</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第2个模型参数计算结果存储到RESULT中</span>
+<span class="c">%         RESULT(j+row_01,i)=result_02(j,1); % 将第2个模型参数计算结果存储到RESULT中</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="k">end</span>
+<span class="n">RESULT</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/464c0e9f24293720b2b9f1f529b613f93c90e3c9c786405ba08b599eeca5dc28.png" src="_images/464c0e9f24293720b2b9f1f529b613f93c90e3c9c786405ba08b599eeca5dc28.png" />
+<img alt="_images/1acc12fcef09a895a751b74a1be8543cc3247a37d6b09f1a6c7d611c0fc80ef9.png" src="_images/1acc12fcef09a895a751b74a1be8543cc3247a37d6b09f1a6c7d611c0fc80ef9.png" />
+<div class="output text_html"><html><body><pre>RESULT = 10x9 double
    50.3000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000
    30.2000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000
-...</pre></body></html></div></div>
+    3.4245    0.0789    0.6532    0.6903    0.9035    0.0646    1.5100    0.8564    0.2007
+   -0.0645   -0.0017    0.0016   -0.0188   -0.0216   -0.0013   -0.0474   -0.0016   -0.0024
+    0.0002    0.0000    0.0000    0.0002    0.0001    0.0000    0.0004    0.0000    0.0000
+    0.0230    0.0010   -0.0010    0.0115    0.0129    0.0007    0.0355    0.0027   -0.0002
+   -0.0001    0.0000    0.0000    0.0000   -0.0000    0.0000   -0.0001   -0.0000    0.0000
+    0.0001   -0.0000   -0.0000   -0.0001   -0.0001   -0.0000   -0.0003   -0.0000    0.0000
+    0.9321    0.9494    0.3012    0.8598    0.7513    0.8933    0.8028    0.7339    0.9447
+    8.3722    5.9527    4.7896   19.0014   32.4343    8.1743   25.3099    1.5612    7.8129
+</pre></body></html></div></div>
 </div>
+</section>
+<section id="minton-1988">
+<h2>第三个模型 Minton – 1988<a class="headerlink" href="#minton-1988" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">close</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clear</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clc</span><span class="p">;</span><span class="w"> </span><span class="c">% 关闭图窗、清空变量、清除命令窗口内容</span>
+<span class="c">%% 导入基础数据data</span>
+<span class="nb">cd</span><span class="p">(</span><span class="s">&quot;D:\桌面\毕设\材料\20221127-结题材料\03-源代码\01 - 高温高压钻井液性质预测模型&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">=</span><span class="n">csvread</span><span class="p">(</span><span class="s">&#39;data18.csv&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c">% data存储不同温度、压力及相应流体参数，其中第一列为温度（℃），第二列为压力（MPa），其余为相应流体参数</span>
+<span class="n">n</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"> </span><span class="c">% 数据（自变量+因变量）共多少行多少列</span>
+<span class="n">n_row</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 样本观测次数</span>
+<span class="n">n_col</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 自变量+因变量个数（因变量n_col-2个）</span>
+
+<span class="c">%% 模型参数计算</span>
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">n_col</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="c">% i代表列，也代表因变量</span>
+<span class="w">    </span><span class="n">Data</span><span class="p">=[</span><span class="n">data</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="nb">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)];</span><span class="w"> </span><span class="c">% 温度、压力与第i个因变量构成的n_row×3矩阵</span>
+<span class="w">     </span><span class="p">[</span><span class="n">result_03</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol03</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第3个模型参数计算结果</span>
+<span class="w">    </span><span class="n">rc_03</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_03</span><span class="p">);</span>
+<span class="w">    </span><span class="n">row_03</span><span class="p">=</span><span class="n">rc_03</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第3个模型参数计算结果构成的列向量有几行</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_03</span>
+<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_03</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第3个模型参数计算结果存储到RESULT中</span>
+<span class="c">%         RESULT(j+row_01+row_02,i)=result_03(j,1); % 将第3个模型参数计算结果存储到RESULT中</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="k">end</span>
+<span class="n">RESULT</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9c69c9f06b2d0651753a780da21e5f1d38d74e380e1de99580742f3b371d44dc.png" src="_images/9c69c9f06b2d0651753a780da21e5f1d38d74e380e1de99580742f3b371d44dc.png" />
+<img alt="_images/43e903d3731cbc3e08b7852f014eba4fe8638f6bbe3237c054271ef2c7f7c87c.png" src="_images/43e903d3731cbc3e08b7852f014eba4fe8638f6bbe3237c054271ef2c7f7c87c.png" />
+<div class="output text_html"><html><body><pre>RESULT = 7x9 double
+   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000
+   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000
+    2.8930    0.0840    0.7010    0.5840    0.6770    0.0710    1.2800    0.8810    0.1880
+   -0.0140   -0.0197    0.0003   -0.0180   -0.0154   -0.0199   -0.0196   -0.0006   -0.0161
+    0.0058    0.0107    0.0000    0.0074    0.0040    0.0113    0.0098    0.0010    0.0053
+    0.9326    0.9702    0.0740    0.9306    0.8695    0.9618    0.8441    0.4762    0.9733
+   13.2819   10.1748    5.3547   17.3295   28.2758   11.3797   25.8375    2.4421   10.2104
+</pre></body></html></div></div>
+</div>
+</section>
+<section id="fisk-1989">
+<h2>第四个模型 Fisk – 1989<a class="headerlink" href="#fisk-1989" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">close</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clear</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clc</span><span class="p">;</span><span class="w"> </span><span class="c">% 关闭图窗、清空变量、清除命令窗口内容</span>
+<span class="c">%% 导入基础数据data</span>
+<span class="nb">cd</span><span class="p">(</span><span class="s">&quot;D:\桌面\毕设\材料\20221127-结题材料\03-源代码\01 - 高温高压钻井液性质预测模型&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">=</span><span class="n">csvread</span><span class="p">(</span><span class="s">&#39;data18.csv&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c">% data存储不同温度、压力及相应流体参数，其中第一列为温度（℃），第二列为压力（MPa），其余为相应流体参数</span>
+<span class="n">n</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"> </span><span class="c">% 数据（自变量+因变量）共多少行多少列</span>
+<span class="n">n_row</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 样本观测次数</span>
+<span class="n">n_col</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 自变量+因变量个数（因变量n_col-2个）</span>
+
+<span class="c">%% 模型参数计算</span>
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">n_col</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="c">% i代表列，也代表因变量</span>
+<span class="w">    </span><span class="n">Data</span><span class="p">=[</span><span class="n">data</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="nb">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)];</span><span class="w"> </span><span class="c">% 温度、压力与第i个因变量构成的n_row×3矩阵</span>
+<span class="w">       </span><span class="p">[</span><span class="n">result_04</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol04</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第4个模型参数计算结果</span>
+<span class="w">    </span><span class="n">rc_04</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_04</span><span class="p">);</span>
+<span class="w">    </span><span class="n">row_04</span><span class="p">=</span><span class="n">rc_04</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第4个模型参数计算结果构成的列向量有几行</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_04</span>
+<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_04</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第4个模型参数计算结果存储到RESULT中</span>
+<span class="c">%         RESULT(j+row_01+row_02+row_03,i)=result_04(j,1); % 将第4个模型参数计算结果存储到RESULT中</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="n">RESULT</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/415d5216d2212d998f8d90ab4f4237c36f03d21094ef949e2094bbb955b05b2f.png" src="_images/415d5216d2212d998f8d90ab4f4237c36f03d21094ef949e2094bbb955b05b2f.png" />
+<img alt="_images/7ae40b0449033edaf8d8faeb8178a5c7f2fccf0658d618e0f325a763921a07ee.png" src="_images/7ae40b0449033edaf8d8faeb8178a5c7f2fccf0658d618e0f325a763921a07ee.png" />
+<div class="output text_html"><html><body><pre>RESULT = 6x9 double
+    3.2630    0.0630    0.7010    0.4920    0.6950    0.0530    0.8870    0.8810    0.2020
+    0.1082    0.1383    1.0167    0.1013    0.0969    0.1567    0.1229    0.9345    0.1127
+  122.8967  101.3843   -3.9471  131.7110  134.8077   93.0421  125.4229    0.7432  113.7476
+    0.0036    0.0062    0.0003    0.0046    0.0024    0.0059    0.0056    0.0008    0.0025
+    0.8021    0.6970    0.1694    0.5905    0.5709    0.6165    0.3984    0.4809    0.8509
+   13.5294   10.4071    4.9482   21.7171   28.4359   10.8963   29.5999    2.3750   12.3055
+</pre></body></html></div></div>
+</div>
+</section>
+<section id="id2">
+<h2>第五个模型 鄢捷年 – 1990<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">close</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clear</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clc</span><span class="p">;</span><span class="w"> </span><span class="c">% 关闭图窗、清空变量、清除命令窗口内容</span>
+<span class="c">%% 导入基础数据data</span>
+<span class="nb">cd</span><span class="p">(</span><span class="s">&quot;D:\桌面\毕设\材料\20221127-结题材料\03-源代码\01 - 高温高压钻井液性质预测模型&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">=</span><span class="n">csvread</span><span class="p">(</span><span class="s">&#39;data18.csv&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c">% data存储不同温度、压力及相应流体参数，其中第一列为温度（℃），第二列为压力（MPa），其余为相应流体参数</span>
+<span class="n">n</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"> </span><span class="c">% 数据（自变量+因变量）共多少行多少列</span>
+<span class="n">n_row</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 样本观测次数</span>
+<span class="n">n_col</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 自变量+因变量个数（因变量n_col-2个）</span>
+
+<span class="c">%% 模型参数计算</span>
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">n_col</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="c">% i代表列，也代表因变量</span>
+<span class="w">    </span><span class="n">Data</span><span class="p">=[</span><span class="n">data</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="nb">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)];</span><span class="w"> </span><span class="c">% 温度、压力与第i个因变量构成的n_row×3矩阵</span>
+<span class="p">[</span><span class="n">result_05</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol05</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第5个模型参数计算结果</span>
+<span class="w">    </span><span class="n">rc_05</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_05</span><span class="p">);</span>
+<span class="w">    </span><span class="n">row_05</span><span class="p">=</span><span class="n">rc_05</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第5个模型参数计算结果构成的列向量有几行</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_05</span>
+<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_05</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第5个模型参数计算结果存储到RESULT中</span>
+<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04,i)=result_05(j,1); % 将第5个模型参数计算结果存储到RESULT中</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="n">RESULT</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fb45b61e0d1799a1e06a67ad9266af53a346ae3c2552ff6f2275985f09466ab9.png" src="_images/fb45b61e0d1799a1e06a67ad9266af53a346ae3c2552ff6f2275985f09466ab9.png" />
+<img alt="_images/c46b77a905e1ab74e16cd9fdd715527f8307af4989c71dce6c1401b7f292ac6e.png" src="_images/c46b77a905e1ab74e16cd9fdd715527f8307af4989c71dce6c1401b7f292ac6e.png" />
+<div class="output text_html"><html><body><pre>RESULT = 8x9 double
+   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000
+   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000
+    2.8930    0.0840    0.7010    0.5840    0.6770    0.0710    1.2800    0.8810    0.1880
+   -0.0135   -0.0204   -0.0000   -0.0184   -0.0157   -0.0200   -0.0195   -0.0006   -0.0167
+    0.0078    0.0068   -0.0010    0.0044    0.0016    0.0061    0.0104    0.0009    0.0033
+   -0.0000    0.0001    0.0000    0.0000    0.0000    0.0001   -0.0000    0.0000    0.0000
+    0.9367    0.9787    0.1767    0.9342    0.8714    0.9678    0.8442    0.4768    0.9766
+   14.9678   17.3575    6.2563   20.2459   30.0612   20.1661   25.7013    2.4474   13.3992
+</pre></body></html></div></div>
+</div>
+</section>
+<section id="eirik-1998">
+<h2>第六个模型 Eirik – 1998<a class="headerlink" href="#eirik-1998" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">close</span><span class="w"> </span><span class="s">all</span><span class="p">;</span><span class="nb">clear</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clc</span><span class="p">;</span><span class="w"> </span><span class="c">% 关闭图窗、清空变量、清除命令窗口内容</span>
+<span class="c">%% 导入基础数据data</span>
+<span class="nb">cd</span><span class="p">(</span><span class="s">&quot;D:\桌面\毕设\材料\20221127-结题材料\03-源代码\01 - 高温高压钻井液性质预测模型&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">=</span><span class="n">csvread</span><span class="p">(</span><span class="s">&#39;data18.csv&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c">% data存储不同温度、压力及相应流体参数，其中第一列为温度（℃），第二列为压力（MPa），其余为相应流体参数</span>
+<span class="n">n</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"> </span><span class="c">% 数据（自变量+因变量）共多少行多少列</span>
+<span class="n">n_row</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 样本观测次数</span>
+<span class="n">n_col</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 自变量+因变量个数（因变量n_col-2个）</span>
+
+<span class="c">%% 模型参数计算</span>
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">n_col</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="c">% i代表列，也代表因变量</span>
+<span class="w">    </span><span class="n">Data</span><span class="p">=[</span><span class="n">data</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="nb">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)];</span><span class="w"> </span><span class="c">% 温度、压力与第i个因变量构成的n_row×3矩阵</span>
+<span class="w"> </span><span class="p">[</span><span class="n">result_06</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol06</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第6个模型参数计算结果</span>
+<span class="w">    </span><span class="n">rc_06</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_06</span><span class="p">);</span>
+<span class="w">    </span><span class="n">row_06</span><span class="p">=</span><span class="n">rc_06</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第6个模型参数计算结果构成的列向量有几行</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_06</span>
+<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_06</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第6个模型参数计算结果存储到RESULT中</span>
+<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04+row_05,i)=result_06(j,1); % 将第6个模型参数计算结果存储到RESULT中</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="n">RESULT</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/306cfb5c873d9913bfa624e73a52dc455ab03403737fc765b999646addcd58d9.png" src="_images/306cfb5c873d9913bfa624e73a52dc455ab03403737fc765b999646addcd58d9.png" />
+<img alt="_images/d57a793cb1cc42b22aa331ee11a37cc4642835969ea4205546f80d4c13c0636d.png" src="_images/d57a793cb1cc42b22aa331ee11a37cc4642835969ea4205546f80d4c13c0636d.png" />
+<div class="output text_html"><html><body><pre>RESULT = 10x9 double
+   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000
+   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000
+    2.8930    0.0840    0.7010    0.5840    0.6770    0.0710    1.2800    0.8810    0.1880
+   -0.0101   -0.0326    0.0001   -0.0203   -0.0008   -0.0336   -0.0282   -0.0027   -0.0125
+   -0.0001    0.0002    0.0000   -0.0001   -0.0006    0.0003   -0.0001    0.0000   -0.0000
+    0.0051    0.0199   -0.0015    0.0109   -0.0071    0.0208    0.0213    0.0031   -0.0027
+   -0.0001    0.0000    0.0000   -0.0002   -0.0004    0.0001   -0.0003   -0.0000    0.0001
+    0.0001   -0.0002   -0.0000    0.0004    0.0010   -0.0003    0.0004   -0.0000   -0.0000
+    0.9382    0.9926    0.2155    0.9362    0.8684    0.9842    0.9118    0.7198    0.9853
+   12.7405    4.9823    5.0005   16.8353   26.5926    7.2011   19.9505    1.6826    7.4211
+</pre></body></html></div></div>
+</div>
+</section>
+<section id="id3">
+<h2>第七个模型 周福建 – 1999<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">close</span><span class="w"> </span><span class="s">all</span><span class="p">;</span><span class="nb">clear</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clc</span><span class="p">;</span><span class="w"> </span><span class="c">% 关闭图窗、清空变量、清除命令窗口内容</span>
+<span class="c">%% 导入基础数据data</span>
+<span class="nb">cd</span><span class="p">(</span><span class="s">&quot;D:\桌面\毕设\材料\20221127-结题材料\03-源代码\01 - 高温高压钻井液性质预测模型&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">=</span><span class="n">csvread</span><span class="p">(</span><span class="s">&#39;data18.csv&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c">% data存储不同温度、压力及相应流体参数，其中第一列为温度（℃），第二列为压力（MPa），其余为相应流体参数</span>
+<span class="n">n</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"> </span><span class="c">% 数据（自变量+因变量）共多少行多少列</span>
+<span class="n">n_row</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 样本观测次数</span>
+<span class="n">n_col</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 自变量+因变量个数（因变量n_col-2个）</span>
+
+<span class="c">%% 模型参数计算</span>
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">n_col</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="c">% i代表列，也代表因变量</span>
+<span class="w">    </span><span class="n">Data</span><span class="p">=[</span><span class="n">data</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="nb">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)];</span><span class="w"> </span><span class="c">% 温度、压力与第i个因变量构成的n_row×3矩阵</span>
+<span class="w">      </span><span class="p">[</span><span class="n">result_07</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol07</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第7个模型参数计算结果</span>
+<span class="w">    </span><span class="n">rc_07</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_07</span><span class="p">);</span>
+<span class="w">    </span><span class="n">row_07</span><span class="p">=</span><span class="n">rc_07</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第7个模型参数计算结果构成的列向量有几行</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_07</span>
+<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_07</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第7个模型参数计算结果存储到RESULT中</span>
+<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04+row_05+row_06,i)=result_07(j,1); % 将第7个模型参数计算结果存储到RESULT中</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="n">RESULT</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c86701069eec815f98b7c6ac81ec68d02f5f394be911b4506cb4d60a1cb69741.png" src="_images/c86701069eec815f98b7c6ac81ec68d02f5f394be911b4506cb4d60a1cb69741.png" />
+<img alt="_images/bc8dbbca7e02df6c147fcb23276423e20b6659149456628f72146792e22de098.png" src="_images/bc8dbbca7e02df6c147fcb23276423e20b6659149456628f72146792e22de098.png" />
+<div class="output text_html"><html><body><pre>RESULT = 8x9 double
+   50.3000   50.3000   42.7000   42.7000   42.7000   50.3000   42.7000   42.7000   42.7000
+   30.2000   30.2000   30.9000   30.9000   30.9000   30.2000   30.9000   30.9000   30.9000
+    3.2630    0.0630    0.7010    0.5840    0.6770    0.0530    1.2800    0.8810    0.1880
+    0.9645    0.9124    0.9423    1.0255    1.1170    0.8932    0.9945    0.9697    0.9889
+   -0.0179   -0.0146    0.0018   -0.0191   -0.0175   -0.0135   -0.0195   -0.0000   -0.0159
+    0.0069    0.0089   -0.0008    0.0083    0.0048    0.0085    0.0098    0.0007    0.0053
+    0.8687    0.8831    0.2555    0.7111    0.6196    0.7992    0.5191    0.4790    0.8723
+   10.0829    6.5041    4.3856   17.9691   27.6115    8.2227   25.8276    2.3713   10.1709
+</pre></body></html></div></div>
+</div>
+</section>
+<section id="id4">
+<h2>第八个模型 汪海阁 – 2000<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">close</span><span class="w"> </span><span class="s">all</span><span class="p">;</span><span class="nb">clear</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clc</span><span class="p">;</span><span class="w"> </span><span class="c">% 关闭图窗、清空变量、清除命令窗口内容</span>
+<span class="c">%% 导入基础数据data</span>
+<span class="nb">cd</span><span class="p">(</span><span class="s">&quot;D:\桌面\毕设\材料\20221127-结题材料\03-源代码\01 - 高温高压钻井液性质预测模型&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">=</span><span class="n">csvread</span><span class="p">(</span><span class="s">&#39;data18.csv&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c">% data存储不同温度、压力及相应流体参数，其中第一列为温度（℃），第二列为压力（MPa），其余为相应流体参数</span>
+<span class="n">n</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"> </span><span class="c">% 数据（自变量+因变量）共多少行多少列</span>
+<span class="n">n_row</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 样本观测次数</span>
+<span class="n">n_col</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 自变量+因变量个数（因变量n_col-2个）</span>
+
+<span class="c">%% 模型参数计算</span>
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">n_col</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="c">% i代表列，也代表因变量</span>
+<span class="w">    </span><span class="n">Data</span><span class="p">=[</span><span class="n">data</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="nb">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)];</span><span class="w"> </span><span class="c">% 温度、压力与第i个因变量构成的n_row×3矩阵</span>
+<span class="w">      </span><span class="p">[</span><span class="n">result_08</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol08</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第8个模型参数计算结果</span>
+<span class="w">    </span><span class="n">rc_08</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_08</span><span class="p">);</span>
+<span class="w">    </span><span class="n">row_08</span><span class="p">=</span><span class="n">rc_08</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第8个模型参数计算结果构成的列向量有几行</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_08</span>
+<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_08</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第8个模型参数计算结果存储到RESULT中</span>
+<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04+row_05+row_06+row_07,i)=result_08(j,1); % 将第8个模型参数计算结果存储到RESULT中</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="n">RESULT</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/188faec5e5490a9a0df6aea5412519fa3b41e3cd69071b11403214abe1f13ea2.png" src="_images/188faec5e5490a9a0df6aea5412519fa3b41e3cd69071b11403214abe1f13ea2.png" />
+<img alt="_images/aec2b8bf0f34ca6ac45f832012ac94b6db0442634949e2476ee72da95e752573.png" src="_images/aec2b8bf0f34ca6ac45f832012ac94b6db0442634949e2476ee72da95e752573.png" />
+<div class="output text_html"><html><body><pre>RESULT = 8x9 double
+   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000
+   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000
+    2.8930    0.0840    0.7010    0.5840    0.6770    0.0710    1.2800    0.8810    0.1880
+   -0.0118   -0.0242   -0.0003   -0.0212   -0.0172   -0.0240   -0.0213   -0.0011   -0.0179
+    0.0061    0.0096   -0.0008    0.0065    0.0035    0.0094    0.0095    0.0008    0.0047
+   -0.0000    0.0001    0.0000    0.0000    0.0000    0.0001    0.0000    0.0000    0.0000
+    0.9373    0.9857    0.1804    0.9370    0.8714    0.9738    0.8462    0.4552    0.9781
+   12.8295    6.9405    4.6371   16.4054   28.0055    9.3216   25.5379    2.4898    9.4413
+</pre></body></html></div></div>
+</div>
+</section>
+<section id="id5">
+<h2>第九个模型 张琰 – 2000<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">close</span><span class="w"> </span><span class="s">all</span><span class="p">;</span><span class="nb">clear</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clc</span><span class="p">;</span><span class="w"> </span><span class="c">% 关闭图窗、清空变量、清除命令窗口内容</span>
+<span class="c">%% 导入基础数据data</span>
+<span class="nb">cd</span><span class="p">(</span><span class="s">&quot;D:\桌面\毕设\材料\20221127-结题材料\03-源代码\01 - 高温高压钻井液性质预测模型&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">=</span><span class="n">csvread</span><span class="p">(</span><span class="s">&#39;data18.csv&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c">% data存储不同温度、压力及相应流体参数，其中第一列为温度（℃），第二列为压力（MPa），其余为相应流体参数</span>
+<span class="n">n</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"> </span><span class="c">% 数据（自变量+因变量）共多少行多少列</span>
+<span class="n">n_row</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 样本观测次数</span>
+<span class="n">n_col</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 自变量+因变量个数（因变量n_col-2个）</span>
+
+<span class="c">%% 模型参数计算</span>
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">n_col</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="c">% i代表列，也代表因变量</span>
+<span class="w">    </span><span class="n">Data</span><span class="p">=[</span><span class="n">data</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="nb">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)];</span><span class="w"> </span><span class="c">% 温度、压力与第i个因变量构成的n_row×3矩阵</span>
+<span class="w">      </span><span class="p">[</span><span class="n">result_09</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol09</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第9个模型参数计算结果</span>
+<span class="w">    </span><span class="n">rc_09</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_09</span><span class="p">);</span>
+<span class="w">    </span><span class="n">row_09</span><span class="p">=</span><span class="n">rc_09</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第9个模型参数计算结果构成的列向量有几行</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_09</span>
+<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_09</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第9个模型参数计算结果存储到RESULT中</span>
+<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04+row_05+row_06+row_07+row_08,i)=result_09(j,1); % 将第9个模型参数计算结果存储到RESULT中</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="n">RESULT</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d1d5524488890d00577154e42020a7e9335327a6c4ab58e17d1f1a7074b5f877.png" src="_images/d1d5524488890d00577154e42020a7e9335327a6c4ab58e17d1f1a7074b5f877.png" />
+<img alt="_images/e553ee8a03585b36268c8006bee8d7a56cfdf03d2f357605df58c35adf6f220d.png" src="_images/e553ee8a03585b36268c8006bee8d7a56cfdf03d2f357605df58c35adf6f220d.png" />
+<div class="output text_html"><html><body><pre>RESULT = 7x9 double
+   50.3000   50.3000   42.7000   42.7000   42.7000   50.3000   42.7000   42.7000   42.7000
+   30.2000   30.2000   30.9000   30.9000   30.9000   30.2000   30.9000   30.9000   30.9000
+    1.1465   -2.8563   -0.4147   -0.5127   -0.2794   -3.0504    0.2414   -0.1575   -1.6824
+   -0.0179   -0.0146    0.0018   -0.0191   -0.0175   -0.0135   -0.0195   -0.0000   -0.0159
+    0.0069    0.0089   -0.0008    0.0083    0.0048    0.0085    0.0098    0.0007    0.0053
+    0.8687    0.8831    0.2555    0.7111    0.6196    0.7992    0.5191    0.4790    0.8723
+   10.0829    6.5041    4.3856   17.9691   27.6115    8.2227   25.8276    2.3713   10.1709
+</pre></body></html></div></div>
+</div>
+</section>
+<section id="id6">
+<h2>第十个模型 赵胜英 – 2009<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">close</span><span class="w"> </span><span class="s">all</span><span class="p">;</span><span class="nb">clear</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clc</span><span class="p">;</span><span class="w"> </span><span class="c">% 关闭图窗、清空变量、清除命令窗口内容</span>
+<span class="c">%% 导入基础数据data</span>
+<span class="nb">cd</span><span class="p">(</span><span class="s">&quot;D:\桌面\毕设\材料\20221127-结题材料\03-源代码\01 - 高温高压钻井液性质预测模型&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">=</span><span class="n">csvread</span><span class="p">(</span><span class="s">&#39;data18.csv&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c">% data存储不同温度、压力及相应流体参数，其中第一列为温度（℃），第二列为压力（MPa），其余为相应流体参数</span>
+<span class="n">n</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"> </span><span class="c">% 数据（自变量+因变量）共多少行多少列</span>
+<span class="n">n_row</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 样本观测次数</span>
+<span class="n">n_col</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 自变量+因变量个数（因变量n_col-2个）</span>
+
+<span class="c">%% 模型参数计算</span>
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">n_col</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="c">% i代表列，也代表因变量</span>
+<span class="w">    </span><span class="n">Data</span><span class="p">=[</span><span class="n">data</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="nb">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)];</span><span class="w"> </span><span class="c">% 温度、压力与第i个因变量构成的n_row×3矩阵</span>
+<span class="w">    </span><span class="p">[</span><span class="n">result_10</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol10</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第10个模型参数计算结果</span>
+<span class="w">    </span><span class="n">rc_10</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_10</span><span class="p">);</span>
+<span class="w">    </span><span class="n">row_10</span><span class="p">=</span><span class="n">rc_10</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第10个模型参数计算结果构成的列向量有几行</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_10</span>
+<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_10</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第10个模型参数计算结果存储到RESULT中</span>
+<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04+row_05+row_06+row_07+row_08+row_09,i)=result_10(j,1); % 将第10个模型参数计算结果存储到RESULT中</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="n">RESULT</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e8cb40eba1297a28bb86137564b11efee112b981cf686285c3c9c0f9b023c101.png" src="_images/e8cb40eba1297a28bb86137564b11efee112b981cf686285c3c9c0f9b023c101.png" />
+<img alt="_images/f835ee0d29de3fd7a7f76fa63d83fa7c67bbf89ac342d752a310f91e2dcb22db.png" src="_images/f835ee0d29de3fd7a7f76fa63d83fa7c67bbf89ac342d752a310f91e2dcb22db.png" />
+<div class="output text_html"><html><body><pre>RESULT = 9x9 double
+   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000
+   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000
+    2.8930    0.0840    0.7010    0.5840    0.6770    0.0710    1.2800    0.8810    0.1880
+   -0.0117   -0.0309    0.0010   -0.0301   -0.0163   -0.0304   -0.0427   -0.0030   -0.0106
+   -0.0000    0.0002   -0.0000    0.0002    0.0000    0.0002    0.0004    0.0000   -0.0001
+    0.0060    0.0186   -0.0020    0.0186    0.0023    0.0182    0.0327    0.0033   -0.0038
+    0.0000   -0.0001    0.0000   -0.0002    0.0000   -0.0001   -0.0004   -0.0000    0.0001
+    0.9373    0.9922    0.1920    0.9329    0.8715    0.9827    0.9123    0.7124    0.9845
+   12.8217    5.2054    5.0447   18.1731   27.8267    7.5756   20.4695    1.7286    7.6534
+</pre></body></html></div></div>
+</div>
+</section>
+<section id="zamora-2013">
+<h2>第十一个模型 Zamora – 2013<a class="headerlink" href="#zamora-2013" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">close</span><span class="w"> </span><span class="s">all</span><span class="p">;</span><span class="nb">clear</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clc</span><span class="p">;</span><span class="w"> </span><span class="c">% 关闭图窗、清空变量、清除命令窗口内容</span>
+<span class="c">%% 导入基础数据data</span>
+<span class="nb">cd</span><span class="p">(</span><span class="s">&quot;D:\桌面\毕设\材料\20221127-结题材料\03-源代码\01 - 高温高压钻井液性质预测模型&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">=</span><span class="n">csvread</span><span class="p">(</span><span class="s">&#39;data18.csv&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c">% data存储不同温度、压力及相应流体参数，其中第一列为温度（℃），第二列为压力（MPa），其余为相应流体参数</span>
+<span class="n">n</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"> </span><span class="c">% 数据（自变量+因变量）共多少行多少列</span>
+<span class="n">n_row</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 样本观测次数</span>
+<span class="n">n_col</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 自变量+因变量个数（因变量n_col-2个）</span>
+
+<span class="c">%% 模型参数计算</span>
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">n_col</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="c">% i代表列，也代表因变量</span>
+<span class="w">    </span><span class="n">Data</span><span class="p">=[</span><span class="n">data</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="nb">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)];</span><span class="w"> </span><span class="c">% 温度、压力与第i个因变量构成的n_row×3矩阵</span>
+<span class="w">    </span><span class="p">[</span><span class="n">result_11</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol11</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第11个模型参数计算结果</span>
+<span class="w">    </span><span class="n">rc_11</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_11</span><span class="p">);</span>
+<span class="w">    </span><span class="n">row_11</span><span class="p">=</span><span class="n">rc_11</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第11个模型参数计算结果构成的列向量有几行</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_11</span>
+<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_11</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第11个模型参数计算结果存储到RESULT中</span>
+<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04+row_05+row_06+row_07+row_08+row_09+row_10,i)=result_11(j,1); % 将第11个模型参数计算结果存储到RESULT中</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">end</span>
+<span class="n">RESULT</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b946b54ed48115a5df154c71e1b9ae655b97c8aa548859c3ed9eade16ed72cd8.png" src="_images/b946b54ed48115a5df154c71e1b9ae655b97c8aa548859c3ed9eade16ed72cd8.png" />
+<img alt="_images/123e93a89f02d220e83e85079111070947b6b57a66736b021f19055dea400bf6.png" src="_images/123e93a89f02d220e83e85079111070947b6b57a66736b021f19055dea400bf6.png" />
+<div class="output text_html"><html><body><pre>RESULT = 10x9 double
+   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000
+   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000
+    3.3775    0.0762    0.6723    0.6179    0.8032    0.0632    1.3272    0.8589    0.2022
+    0.0329    0.0004   -0.0031    0.0112    0.0185    0.0002    0.0419    0.0018   -0.0005
+   -0.0004   -0.0000    0.0000   -0.0001   -0.0002   -0.0000   -0.0005   -0.0000    0.0000
+   -0.0436   -0.0012    0.0012   -0.0110   -0.0138   -0.0009   -0.0293   -0.0010   -0.0023
+   -0.0000    0.0000    0.0000    0.0000   -0.0001    0.0000   -0.0000    0.0000    0.0000
+    0.0000   -0.0000   -0.0000    0.0000    0.0000   -0.0000    0.0000   -0.0000   -0.0000
+    0.9058    0.8934    0.3558    0.8325    0.7816    0.8271    0.8102    0.7149    0.9445
+   10.7399    7.8141    4.5868   17.3567   29.8341    9.3199   23.6763    1.6053    7.6386
+</pre></body></html></div></div>
+</div>
+</section>
+<section id="id7">
+<h2>第十二个模型 赵向阳 – 2013<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">close</span><span class="w"> </span><span class="s">all</span><span class="p">;</span><span class="nb">clear</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clc</span><span class="p">;</span><span class="w"> </span><span class="c">% 关闭图窗、清空变量、清除命令窗口内容</span>
+<span class="c">%% 导入基础数据data</span>
+<span class="nb">cd</span><span class="p">(</span><span class="s">&quot;D:\桌面\毕设\材料\20221127-结题材料\03-源代码\01 - 高温高压钻井液性质预测模型&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">=</span><span class="n">csvread</span><span class="p">(</span><span class="s">&#39;data18.csv&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c">% data存储不同温度、压力及相应流体参数，其中第一列为温度（℃），第二列为压力（MPa），其余为相应流体参数</span>
+<span class="n">n</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"> </span><span class="c">% 数据（自变量+因变量）共多少行多少列</span>
+<span class="n">n_row</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 样本观测次数</span>
+<span class="n">n_col</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 自变量+因变量个数（因变量n_col-2个）</span>
+
+<span class="c">%% 模型参数计算</span>
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">n_col</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="c">% i代表列，也代表因变量</span>
+<span class="w">    </span><span class="n">Data</span><span class="p">=[</span><span class="n">data</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="nb">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)];</span><span class="w"> </span><span class="c">% 温度、压力与第i个因变量构成的n_row×3矩阵</span>
+<span class="w">    </span><span class="p">[</span><span class="n">result_12</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol12</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第12个模型参数计算结果</span>
+<span class="w">    </span><span class="n">rc_12</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_12</span><span class="p">);</span>
+<span class="w">    </span><span class="n">row_12</span><span class="p">=</span><span class="n">rc_12</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第12个模型参数计算结果构成的列向量有几行</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_12</span>
+<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_12</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第12个模型参数计算结果存储到RESULT中</span>
+<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04+row_05+row_06+row_07+row_08+row_09+row_10+row_11,i)=result_12(j,1); % 将第12个模型参数计算结果存储到RESULT中</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="n">RESULT</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/85ba63713fb5c041937bdb722d05045901a11c9bc6a14c06f6c3e2041b555ec0.png" src="_images/85ba63713fb5c041937bdb722d05045901a11c9bc6a14c06f6c3e2041b555ec0.png" />
+<img alt="_images/cb8a05001246dbc6efc2930e67852af72c6d70c53085408fae2349cbf19978f0.png" src="_images/cb8a05001246dbc6efc2930e67852af72c6d70c53085408fae2349cbf19978f0.png" />
+<div class="output text_html"><html><body><pre>RESULT = 10x9 double
+   50.3000   42.7000   42.7000   50.3000   50.3000   42.7000   42.7000   42.7000   50.3000
+   30.2000   30.9000   30.9000   30.2000   30.2000   30.9000   30.9000   30.9000   30.2000
+    3.2630    0.0840    0.7010    0.4920    0.6950    0.0710    1.2800    0.8810    0.2020
+    0.0955   -0.0647   -0.0628    0.2415    0.3153   -0.1024    0.2345   -0.0297    0.0028
+   -0.0253   -0.0270    0.0032   -0.0407   -0.0432   -0.0245   -0.0510   -0.0020   -0.0182
+    0.0001    0.0001   -0.0000    0.0003    0.0003    0.0001    0.0004    0.0000   -0.0001
+    0.0071    0.0159   -0.0021    0.0201    0.0133    0.0145    0.0332    0.0032   -0.0027
+   -0.0000   -0.0001    0.0000   -0.0002   -0.0001   -0.0001   -0.0004   -0.0000    0.0002
+    0.8936    0.9461    0.2664    0.8079    0.7129    0.8823    0.7762    0.7364    0.9350
+    9.4738    5.7179    4.8237   16.5814   25.4148    7.8693   19.4305    1.5957    7.2785
+</pre></body></html></div></div>
+</div>
+</section>
+<section id="id8">
+<h2>第十三个模型 高禹 – 2019<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">close</span><span class="w"> </span><span class="s">all</span><span class="p">;</span><span class="nb">clear</span><span class="w"> </span><span class="nb">all</span><span class="p">;</span><span class="nb">clc</span><span class="p">;</span><span class="w"> </span><span class="c">% 关闭图窗、清空变量、清除命令窗口内容</span>
+<span class="c">%% 导入基础数据data</span>
+<span class="nb">cd</span><span class="p">(</span><span class="s">&quot;D:\桌面\毕设\材料\20221127-结题材料\03-源代码\01 - 高温高压钻井液性质预测模型&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">=</span><span class="n">csvread</span><span class="p">(</span><span class="s">&#39;data18.csv&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span><span class="c">% data存储不同温度、压力及相应流体参数，其中第一列为温度（℃），第二列为压力（MPa），其余为相应流体参数</span>
+<span class="n">n</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">data</span><span class="p">);</span><span class="w"> </span><span class="c">% 数据（自变量+因变量）共多少行多少列</span>
+<span class="n">n_row</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 样本观测次数</span>
+<span class="n">n_col</span><span class="p">=</span><span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="c">% 自变量+因变量个数（因变量n_col-2个）</span>
+
+<span class="c">%% 模型参数计算</span>
+<span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">n_col</span><span class="o">-</span><span class="mi">2</span><span class="w"> </span><span class="c">% i代表列，也代表因变量</span>
+<span class="w">    </span><span class="n">Data</span><span class="p">=[</span><span class="n">data</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="n">data</span><span class="p">(:,</span><span class="nb">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)];</span><span class="w"> </span><span class="c">% 温度、压力与第i个因变量构成的n_row×3矩阵</span>
+<span class="w">    </span><span class="p">[</span><span class="n">result_13</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Function_ParameterSol13</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span><span class="w"> </span><span class="c">% 第13个模型参数计算结果</span>
+<span class="w">    </span><span class="n">rc_13</span><span class="p">=</span><span class="nb">size</span><span class="p">(</span><span class="n">result_13</span><span class="p">);</span>
+<span class="w">    </span><span class="n">row_13</span><span class="p">=</span><span class="n">rc_13</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 第13个模型参数计算结果构成的列向量有几行</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="n">row_13</span>
+<span class="w">        </span><span class="n">RESULT</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="nb">i</span><span class="p">)=</span><span class="n">result_13</span><span class="p">(</span><span class="nb">j</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="c">% 将第13个模型参数计算结果存储到RESULT中</span>
+<span class="c">%         RESULT(j+row_01+row_02+row_03+row_04+row_05+row_06+row_07+row_08+row_09+row_10+row_11+row_12,i)=result_13(j,1); % 将第13个模型参数计算结果存储到RESULT中</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="n">RESULT</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fa2fbd7034a4b4379602bfe7cbabf20879bd7137ff8fabcf6ff636f76df7203d.png" src="_images/fa2fbd7034a4b4379602bfe7cbabf20879bd7137ff8fabcf6ff636f76df7203d.png" />
+<img alt="_images/4345aa47c7c04a03b99a7a97f497237f301f642f312c5e9af35a21a4f41ec266.png" src="_images/4345aa47c7c04a03b99a7a97f497237f301f642f312c5e9af35a21a4f41ec266.png" />
+<div class="output text_html"><html><body><pre>RESULT = 10x9 double
+   50.3000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000   42.7000
+   30.2000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000   30.9000
+    3.2630    0.0840    0.7010    0.5840    0.6770    0.0710    1.2800    0.8810    0.1880
+    1.0982    0.9991    0.9659    1.2338    1.4104    0.9739    1.2127    0.9805    1.1342
+   -0.0296   -0.0411    0.0025   -0.0520   -0.0459   -0.0382   -0.0744   -0.0045   -0.0119
+    0.0074    0.0214   -0.0038    0.0295    0.0211    0.0190    0.0551    0.0053   -0.0121
+   -0.0715   -0.9224    0.2784   -1.6329   -1.1250   -0.7518   -3.5399   -0.3511    1.3081
+    0.8535    1.6151   -0.1502    2.2297    1.7242    1.4518    3.9709    0.3371   -0.5610
+    0.8817    0.9521    0.2718    0.7813    0.6680    0.8945    0.7576    0.7373    0.9258
+   10.1649    5.2058    4.7229   17.7727   28.4963    7.2909   20.2585    1.6069    8.1373
+</pre></body></html></div></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -631,7 +1057,32 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorelle-1982">第一个模型  Sorelle – 1982</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#politte-1985">第二个模型 Politte – 1985</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minton-1988">第三个模型 Minton – 1988</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fisk-1989">第四个模型 Fisk – 1989</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">第五个模型 鄢捷年 – 1990</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eirik-1998">第六个模型 Eirik – 1998</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">第七个模型 周福建 – 1999</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">第八个模型 汪海阁 – 2000</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">第九个模型 张琰 – 2000</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">第十个模型 赵胜英 – 2009</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zamora-2013">第十一个模型 Zamora – 2013</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">第十二个模型 赵向阳 – 2013</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">第十三个模型 高禹 – 2019</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
